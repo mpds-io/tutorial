@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<title>MPDS: Introduction for Human Users</title>
+<title>MPDS: introduction for materials scientists</title>
 <style>
 /* COMMON */
 
@@ -20,6 +20,12 @@ background-attachment:fixed;
 }
 #overlay{display:none;position:fixed;left:0;top:0;width:100%;height:100%;text-align:center;z-index:100;background:#fff;opacity:0.75;overflow:hidden;}
 
+#nav{position:fixed;top:0;left:0;height:34px;z-index:101;background:#fff;font-size:0.9em;padding:0 3px;border-bottom-right-radius:4px;line-height:33px;border-bottom:1px solid #888;border-right:1px solid #888;cursor:pointer;box-shadow:4px 4px 4px -4px rgba(0,0,0,0.5);}
+#nav li{list-style:none;float:left;font-weight:bold;margin:0 10px;}
+#nav a{text-decoration:none;color:#555;}
+#nav a:hover{border-bottom:1px solid #000;}
+#start_link{display:none;}
+
 .wmbutton{cursor:pointer;font-size:1.2em;font-weight:normal;text-align:center;border:1px solid #3e3f95;text-align:center;background:#3e3f95;color:#fff;line-height:1.4em;border-radius:2px;text-decoration:none;box-shadow:inset 0 2px 2px rgba(255,255,255,0.3), inset 0 -2px 2px rgba(0,0,0,0.3), inset 0 20px 10px rgba(255,255,255,0.3), 0 0 2px 1px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.3);}
 
 div.modal_dialogue{position:fixed;top:10%;left:50%;border-radius:4px;border:1px solid #999;box-shadow:15px 15px 10px -5px rgba(0,0,0,0.4);}
@@ -32,9 +38,16 @@ span.href{cursor:pointer;text-decoration:none;color:#3e3f95;border-bottom:1px so
 #main{width:100%;min-height:100%;height:auto !important;height:100%;margin-bottom:-33px;}
 h1, h2, h3{line-height:3em;font-weight:2.5em;font-weight:bold;color:#c00;}
 
-div.spacer{width:790px;margin:0 auto;height:1px;background:#ddd;}
-#content{width:790px;margin:0 auto;background:#fff;padding:30px 15px 40px;border-radius:15px;}
-#content p{line-height:1.75em;color:#666;}
+div.spacer{width:790px;margin:0 auto;height:1px;border-top:1px solid #ccc;}
+
+#content{width:790px;margin:0 auto;background:#fff;padding:0 15px 40px;border-radius:15px;}
+#content > p{line-height:1.7em;color:#666;margin:20px 0;padding:10px 5px;border-radius:4px;background:#f9f9f9;}
+#content > p:first-letter {font-size:1.6em;font-weight:bold;}
+#content a{color:#222;text-decoration:none;border-bottom:1px solid #222;}
+#content > table{width:auto;margin:20px 0;font-size:0.9em;text-align:left;color:#666;border-collapse:collapse;border-spacing:0;}
+#content > table td{line-height:2em;border:1px solid #ddd;padding:4px 2px;}
+#content > table th{line-height:2.2em;border:1px solid #ddd;background:#f6f6f6;padding:4px 2px;}
+span.t{font-family:'Courier New';background:#aaa;color:#fff;padding:1px 2px;}
 
 /* LOGOS */
 
@@ -48,31 +61,54 @@ div.spacer{width:790px;margin:0 auto;height:1px;background:#ddd;}
 /* FOOTER */
 /* HEIGHT 32px */
 
-#footer{width:100%;height:24px;padding-top:8px;text-align:center;font-size:0.85em;color:#888;background:#f6f6f6;border-top:1px solid #888;}
-#footer a{text-decoration:none;color:#888;border-bottom:1px solid #888;}
+#footer{width:100%;height:24px;padding-top:8px;text-align:center;font-size:0.85em;color:#888;background:#f6f6f6;border-top:1px solid #888;font-family:Georgia;}
+#footer a{text-decoration:none;color:#888;border-bottom:1px solid #888;font-family:Georgia;}
+#twitter{position:fixed;z-index:3;bottom:0;left:0;width:13.5%;height:32px;text-align:center;}
+#twitter a{text-decoration:none;font-size:0.85em;color:#888;line-height:32px;border-bottom:1px solid #888;font-family:Georgia;}
+
+@media screen and (min-width:1200px){
+#start_link {display:inline-block;}
+}
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.ajax({
+        url: 'https://mpds.io/wmdata.json',
+        success: function (data) {
+            console.log(data.stats);
+        }
+    });
+});
 </script>
 </head>
 <body class="sky">
+
+    <div id="nav"><ul>
+        <li id="start_link"><a href="https://mpds.io">Start</a></li>
+        <li><a href="http://datascience.mpds.io">Manual</a></li>
+        <li><a href="http://developer.mpds.io">API</a></li>
+        <li><a href="https://mpds.io/#products">Products</a></li>
+    </ul></div>
+
     <div id="main">
         <div id="landing_box">
             <div id="logo_l">MPDS</div><div id="logo"></div><div id="logo_r">Materials Platform<br />for Data Science</div>
-            <div id="motto">based on the <a href="http://paulingfile.com" target="_blank">Linus Pauling File</a> materials database</div>
+            <div id="motto">based on the <a href="http://paulingfile.com" target="_blank" rel="noopener noreferrer">PAULING FILE</a> materials database</div>
         </div>
 
         <div class="spacer"></div>
 
         <div id="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p style="background:#DBF2FF;">Dear materials scientists! We are happy to welcome you here.</p>
 
-            
-
-            
+            <div id="mpds_categ_vis" class="view"></div>
         </div>
     </div>
 
     <div id="logo_bg"></div>
+
+    <div id="twitter"><a href="https://twitter.com/mpdsio" target="_blank" rel="noopener noreferrer">Twitter @mpdsio</a></div>
 
     <div id="footer">Created by <a href="http://paulingfile.com" target="_blank">Materials Phase Data System</a> and <a href="https://tilde.pro" target="_blank">Tilde Materials Informatics</a>.</div>
 </body>
