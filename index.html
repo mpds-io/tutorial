@@ -20,11 +20,28 @@ background-attachment:fixed;
 }
 #overlay{display:none;position:fixed;left:0;top:0;width:100%;height:100%;text-align:center;z-index:100;background:#fff;opacity:0.75;overflow:hidden;}
 
+/* COMMON NAVBAR START */
+
 #nav{position:fixed;top:0;left:0;height:34px;z-index:101;background:#fff;font-size:0.9em;padding:0 3px;border-bottom-right-radius:4px;line-height:33px;border-bottom:1px solid #888;border-right:1px solid #888;cursor:pointer;box-shadow:4px 4px 4px -4px rgba(0,0,0,0.5);}
-#nav li{list-style:none;float:left;font-weight:bold;margin:0 10px;}
+#nav li{list-style:none;float:left;font-weight:bold;margin:0 7px;}
 #nav a{text-decoration:none;color:#555;}
 #nav a:hover{border-bottom:1px solid #000;}
 #start_link{display:none;}
+
+/* COMMON NAVBAR END */
+
+#menu{display:none;position:fixed;left:0;top:210px;width:12.5%;height:auto;z-index:100;border-top:1px solid #ccc;padding-top:20px;}
+#menu li{text-align:left;list-style:none;}
+#menu a{display:block;}
+#menu > ul > li a{text-decoration:none;color:#900;border-bottom:1px solid #900;font-size:1.1em;padding-left:5px;line-height:2em;}
+#menu > ul > li a:hover, #menu > ul > li a.active {color:#fff;background:#900;}
+#menu > ul > li > ul > li a{text-decoration:none;color:#3e3f95;border-bottom:1px solid #3e3f95;font-size:0.9em;padding-left:20px;line-height:2em;}
+#menu > ul > li > ul > li a:hover, #menu > ul > li > ul > li a.active {color:#fff;background:#3e3f95;}
+
+@media all and (min-width:1000px){
+#menu{display:block;}
+#start_link{display:inline-block;}
+}
 
 .wmbutton{cursor:pointer;font-size:1.2em;font-weight:normal;text-align:center;border:1px solid #3e3f95;text-align:center;background:#3e3f95;color:#fff;line-height:1.4em;border-radius:2px;text-decoration:none;box-shadow:inset 0 2px 2px rgba(255,255,255,0.3), inset 0 -2px 2px rgba(0,0,0,0.3), inset 0 20px 10px rgba(255,255,255,0.3), 0 0 2px 1px rgba(0,0,0,0.2), 0 2px 2px rgba(0,0,0,0.3);}
 
@@ -36,7 +53,9 @@ span.href{cursor:pointer;text-decoration:none;color:#3e3f95;border-bottom:1px so
 #logo_bg{display:none;width:250px;height:250px;position:fixed;z-index:-1;right:5px;bottom:20px;background:url(https://raw.githubusercontent.com/mpds-io/datascience/gh-pages/mpds.png) left top no-repeat;background-size:100%;opacity:0.1;}
 #notifybox{z-index:201;position:fixed;top:12px;right:4px;min-width:150px;background:#fc6;border-radius:5px;padding:20px 25px;font-size:1.2em;line-height:1.45em;}
 #main{width:100%;min-height:100%;height:auto !important;height:100%;margin-bottom:-33px;}
-h1, h2, h3{line-height:3em;font-weight:2.5em;font-weight:bold;color:#c00;}
+h1, h2, h3{line-height:2.2em;font-size:1.5em;font-weight:bold;color:#3e3f95;}
+h2:first-letter , h3:first-letter {color:#900;}
+h3{line-height:2.2em;font-size:1.2em;}
 
 div.spacer{width:790px;margin:0 auto;height:1px;border-top:1px solid #ccc;}
 
@@ -48,6 +67,14 @@ div.spacer{width:790px;margin:0 auto;height:1px;border-top:1px solid #ccc;}
 #content > table td{line-height:2em;border:1px solid #ddd;padding:4px 2px;}
 #content > table th{line-height:2.2em;border:1px solid #ddd;background:#f6f6f6;padding:4px 2px;}
 span.t{font-family:'Courier New';background:#aaa;color:#fff;padding:1px 2px;}
+
+div.blackbg{background:#666;font-size:0.9em;color:#fff;font-family:'Courier New';line-height:1.6em;margin:20px 0;padding:10px 5px;border-radius:4px;white-space:pre;}
+div.caption{text-align:center;font-size:0.9em;line-height:2em;color:#666;margin:20px 0 30px;font-style:italic;}
+div.caption b{font-style:normal;}
+
+div.mpds_categs{margin:20px 0;}
+#mpds_categs_classes > a{display:inline-block;font-size:0.9em;line-height:1.5em;text-decoration:none;color:#fff;padding:1px 2px;margin-right:3px;margin-bottom:3px;background:#E36868;border:0;border-radius:2px;}
+#mpds_categs_formulae > a{display:inline-block;font-size:0.9em;line-height:1.5em;text-decoration:none;color:#fff;padding:1px 2px;margin-right:3px;margin-bottom:3px;background:#06c;border:0;border-radius:2px;}
 
 /* LOGOS */
 
@@ -66,30 +93,159 @@ span.t{font-family:'Courier New';background:#aaa;color:#fff;padding:1px 2px;}
 #twitter{position:fixed;z-index:3;bottom:0;left:0;width:13.5%;height:32px;text-align:center;}
 #twitter a{text-decoration:none;font-size:0.85em;color:#888;line-height:32px;border-bottom:1px solid #888;font-family:Georgia;}
 
-@media screen and (min-width:1200px){
-#start_link {display:inline-block;}
+/* "Fork me on GitHub" CSS ribbon v0.1.1 */
+
+.github-fork-ribbon {
+position: absolute;
+padding: 2px 0;
+background-color: #3e3f95;
+background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+-webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+-moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+font: 500 9px "Helvetica Neue", Helvetica, Arial, sans-serif;
+z-index: 9999;
+pointer-events: auto;
+}
+.github-fork-ribbon a,
+.github-fork-ribbon a:hover {
+color: #fff;
+text-decoration: none;
+text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+text-align: center;
+width: 100px;
+line-height: 12px;
+display: inline-block;
+padding: 2px 0;
+border-width: 1px 0;
+border-style: dotted;
+border-color: #fff;
+border-color: rgba(255, 255, 255, 1);
+}
+.github-fork-ribbon-wrapper {
+width: 100px;
+height: 100px;
+position: absolute;
+overflow: hidden;
+top: 0;
+z-index: 9999;
+pointer-events: none;
+}
+.github-fork-ribbon-wrapper.right {
+right: 0;
+}
+.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+top: 16px;
+right: -22px;
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+-o-transform: rotate(45deg);
+transform: rotate(45deg);
 }
 </style>
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.ie.min.css" />
+<![endif]-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery.nearest.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-    $.ajax({
-        url: 'https://mpds.io/wmdata.json',
-        success: function (data) {
-            console.log(data.stats);
+if (!window.console) window.console = {log: function(){}, error: function(){}};
+
+window.formulae_ex = ['Ag&#x2080;.&#x2085;Pd&#x2080;.&#x2085;', 'Ag&#x2080;.&#x2085;Zn&#x2080;.&#x2085;', 'Ag&#x2080;.&#x2088;Sn&#x2080;.&#x2082;', 'Ag&#x2082;S', 'Ag&#x2082;Se', 'Ag&#x2082;Te', 'Ag&#x2083;Sn', 'AgBr', 'AgCe', 'AgCl', 'AgCu&#x2084;Yb', 'AgGaS&#x2082;', 'AgGaSe&#x2082;', 'AgI', 'AgYbGe', 'Al&#x2080;.&#x2083;&#x2087;Ga&#x2080;.&#x2086;&#x2083;As', 'Al&#x2082;O&#x2083;', 'Al&#x2084;C&#x2083;', 'AlAs', 'AlF&#x2083;', 'AlN', 'AlP', 'AlSb', 'Al[PO&#x2084;]', 'As&#x2082;S&#x2083;', 'As&#x2082;Se&#x2083;', 'As&#x2082;Te&#x2083;', 'AsS', 'Au&#x2080;.&#x2088;&#x2085;Sn&#x2080;.&#x2081;&#x2085;', 'AuSn', 'AuTe&#x2082;', 'B&#x2081;&#x2083;C&#x2082;', 'Ba&#x2080;.&#x2080;&#x2085;CuLa&#x2081;.&#x2089;&#x2085;O&#x2084;', 'Ba&#x2080;.&#x2081;&#x2082;&#x2085;CuLa&#x2081;.&#x2088;&#x2087;&#x2085;O&#x2084;', 'Ba&#x2080;.&#x2082;CuLa&#x2081;.&#x2088;O&#x2084;', 'Ba&#x2080;.&#x2083;La&#x2080;.&#x2087;MnO&#x2083;', 'Ba&#x2080;.&#x2085;La&#x2080;.&#x2085;CoO&#x2083;', 'Ba&#x2080;.&#x2085;La&#x2080;.&#x2085;MnO&#x2083;', 'Ba&#x2080;.&#x2085;Sr&#x2080;.&#x2085;TiO&#x2083;', 'Ba&#x2081;.&#x2088;Cu&#x2083;La&#x2080;.&#x2082;YO&#x2087;', 'Ba&#x2082;Ca&#x2080;.&#x2081;&#x2085;Cu&#x2083;Y&#x2080;.&#x2088;&#x2085;O&#x2087;', 'Ba&#x2082;Ca&#x2082;Cu&#x2083;HgO&#x2088;.&#x2082;', 'Ba&#x2082;Ca&#x2082;Cu&#x2083;Tl&#x2082;O&#x2081;&#x2080;', 'Ba&#x2082;CaCu&#x2082;HgO&#x2086;.&#x2082;', 'Ba&#x2082;CaCu&#x2082;Tl&#x2082;O&#x2088;', 'Ba&#x2082;Cu&#x2082;.&#x2085;YFe&#x2080;.&#x2085;O&#x2087;.&#x2082;&#x2083;', 'Ba&#x2082;Cu&#x2082;.&#x2087;Zn&#x2080;.&#x2083;YO&#x2087;', 'Ba&#x2082;Cu&#x2082;.&#x2088;&#x2085;YNi&#x2080;.&#x2081;&#x2085;O&#x2087;', 'Ba&#x2082;Cu&#x2082;.&#x2089;&#x2085;YCo&#x2080;.&#x2080;&#x2085;O&#x2087;', 'Ba&#x2082;Cu&#x2082;YCoO&#x2087;.&#x2082;&#x2085;', 'Ba&#x2082;Cu&#x2082;YFeO&#x2087;', 'Ba&#x2082;Cu&#x2083;DyO&#x2087;', 'Ba&#x2082;Cu&#x2083;ErO&#x2087;', 'Ba&#x2082;Cu&#x2083;EuO&#x2087;', 'Ba&#x2082;Cu&#x2083;GdO&#x2086;.&#x2088;&#x2085;', 'Ba&#x2082;Cu&#x2083;GdO&#x2087;', 'Ba&#x2082;Cu&#x2083;HoO&#x2087;', 'Ba&#x2082;Cu&#x2083;LaO&#x2087;', 'Ba&#x2082;Cu&#x2083;NdO&#x2086;.&#x2085;', 'Ba&#x2082;Cu&#x2083;NdO&#x2087;', 'Ba&#x2082;Cu&#x2083;PrO&#x2086;.&#x2084;', 'Ba&#x2082;Cu&#x2083;PrO&#x2087;', 'Ba&#x2082;Cu&#x2083;SmO&#x2087;', 'Ba&#x2082;Cu&#x2083;TmO&#x2087;', 'Ba&#x2082;Cu&#x2083;Y&#x2080;.&#x2088;Pr&#x2080;.&#x2082;O&#x2087;', 'Ba&#x2082;Cu&#x2083;YO&#x2086;', 'Ba&#x2082;Cu&#x2083;YO&#x2086;.&#x2083;', 'Ba&#x2082;Cu&#x2083;YO&#x2086;.&#x2085;', 'Ba&#x2082;Cu&#x2083;YO&#x2087;', 'Ba&#x2082;Cu&#x2083;YbO&#x2087;', 'Ba&#x2082;Cu&#x2084;YO&#x2088;', 'Ba&#x2082;CuHgO&#x2084;.&#x2081;', 'Ba&#x2082;CuTl&#x2082;O&#x2086;', 'Ba&#x2082;MoFeO&#x2086;', 'Ba&#x2084;Cu&#x2087;Y&#x2082;O&#x2081;&#x2084;.&#x2086;', 'Ba&#x2084;Ga&#x2088;Ge&#x2081;&#x2085;', 'Ba&#x2084;Ga&#x2088;Sn&#x2081;&#x2085;', 'BaBiO&#x2083;', 'BaCaCu&#x2083;LaO&#x2086;.&#x2085;', 'BaCl&#x2082;', 'BaF&#x2082;', 'BaFe&#x2081;&#x2082;O&#x2081;&#x2089;', 'BaFe&#x2081;.&#x2088;Co&#x2080;.&#x2082;As&#x2082;', 'BaFe&#x2082;As&#x2082;', 'BaGdCo&#x2082;O&#x2085;.&#x2084;&#x2082;', 'BaIrO&#x2083;', 'BaLaMn&#x2082;O&#x2086;', 'BaMnF&#x2084;', 'BaO', 'BaPbO&#x2083;', 'BaPrCo&#x2082;O&#x2085;.&#x2085;', 'BaRuO&#x2083;', 'BaTi&#x2080;.&#x2088;&#x2085;Sn&#x2080;.&#x2081;&#x2085;O&#x2083;', 'BaTiO&#x2083;', 'BaVS&#x2083;', 'BaYCo&#x2084;O&#x2087;', 'BaZrO&#x2083;', 'Be&#x2081;&#x2083;U', 'BeO', 'Bi&#x2080;.&#x2089;&#x2084;&#x2084;Sb&#x2080;.&#x2080;&#x2085;&#x2086;', 'Bi&#x2082;O&#x2083;', 'Bi&#x2082;S&#x2083;', 'Bi&#x2082;Se&#x2083;', 'Bi&#x2082;Te&#x2083;', 'C&#x2086;&#x2080;', 'Ca&#x2080;.&#x2081;&#x2085;La&#x2080;.&#x2088;&#x2085;MnO&#x2083;', 'Ca&#x2080;.&#x2083;La&#x2080;.&#x2081;&#x2087;&#x2085;Pr&#x2080;.&#x2085;&#x2082;&#x2085;MnO&#x2083;', 'Ca&#x2080;.&#x2083;La&#x2080;.&#x2085;MnBi&#x2080;.&#x2082;O&#x2083;', 'Ca&#x2080;.&#x2083;La&#x2080;.&#x2087;MnO&#x2083;', 'Ca&#x2080;.&#x2084;MnBi&#x2080;.&#x2086;O&#x2083;', 'Ca&#x2080;.&#x2085;La&#x2080;.&#x2085;Cr&#x2080;.&#x2080;&#x2088;Mn&#x2080;.&#x2089;&#x2082;O&#x2083;', 'Ca&#x2080;.&#x2085;La&#x2080;.&#x2085;Mn&#x2080;.&#x2085;Fe&#x2080;.&#x2085;O&#x2083;', 'Ca&#x2080;.&#x2085;La&#x2080;.&#x2085;MnO&#x2083;', 'Ca&#x2080;.&#x2085;Nd&#x2080;.&#x2085;MnO&#x2083;', 'Ca&#x2080;.&#x2085;Pr&#x2080;.&#x2085;Cr&#x2080;.&#x2080;&#x2085;Mn&#x2080;.&#x2089;&#x2085;O&#x2083;', 'Ca&#x2080;.&#x2085;Pr&#x2080;.&#x2085;MnO&#x2083;', 'Ca&#x2080;.&#x2085;TiPb&#x2080;.&#x2085;O&#x2083;', 'Ca&#x2080;.&#x2085;Y&#x2080;.&#x2085;MnO&#x2083;', 'Ca&#x2081;.&#x2081;&#x2085;Cu&#x2082;La&#x2081;.&#x2088;&#x2085;O&#x2086;', 'Ca&#x2082;ReFeO&#x2086;', 'Ca&#x2082;RuO&#x2084;', 'Ca&#x2083;Co&#x2082;O&#x2086;', 'Ca&#x2083;Co&#x2084;O&#x2089;', 'Ca&#x2085;[PO&#x2084;]&#x2083;[OH]', 'CaAl&#x2082;', 'CaAlSi', 'CaCu&#x2083;Ti&#x2084;O&#x2081;&#x2082;', 'CaF&#x2082;', 'CaFe&#x2082;As&#x2082;', 'CaIrO&#x2083;', 'CaMnO&#x2083;', 'CaO', 'CaRuO&#x2083;', 'CaS', 'CaSi&#x2082;', 'CaTiO&#x2083;', 'Ca[CO&#x2083;]', 'Ca[WO&#x2084;]', 'Cd&#x2080;.&#x2080;&#x2085;Sn&#x2080;.&#x2089;&#x2085;', 'Cd&#x2080;.&#x2085;Hg&#x2080;.&#x2085;Te', 'Cd&#x2080;.&#x2085;Mn&#x2080;.&#x2085;Se', 'Cd&#x2080;.&#x2085;Mn&#x2080;.&#x2085;Te', 'Cd&#x2082;Nb&#x2082;O&#x2087;', 'Cd&#x2083;As&#x2082;', 'CdAs&#x2082;', 'CdCr&#x2082;S&#x2084;', 'CdCr&#x2082;Se&#x2084;', 'CdF&#x2082;', 'CdI&#x2082;', 'CdO', 'CdS', 'CdSb', 'CdSe', 'CdTe', 'Ce&#x2080;.&#x2085;Sm&#x2080;.&#x2085;O&#x2081;.&#x2087;&#x2085;', 'Ce&#x2080;.&#x2085;Zr&#x2080;.&#x2085;O&#x2082;', 'Ce&#x2080;.&#x2088;Gd&#x2080;.&#x2082;O&#x2081;.&#x2089;', 'Ce&#x2082;Fe&#x2081;&#x2087;', 'Ce&#x2083;Al&#x2081;&#x2081;', 'Ce&#x2083;Sn', 'CeAl&#x2082;', 'CeAl&#x2083;', 'CeB&#x2086;', 'CeBi', 'CeCo&#x2082;', 'CeCo&#x2085;', 'CeCoGe&#x2083;', 'CeCoIn&#x2085;', 'CeFe&#x2081;.&#x2085;Co&#x2080;.&#x2085;', 'CeFe&#x2082;', 'CeFe&#x2084;Sb&#x2081;&#x2082;', 'CeIn&#x2083;', 'CeIrSi&#x2083;', 'CeMn&#x2082;Si&#x2082;', 'CeNi', 'CeNi&#x2082;Ge&#x2082;', 'CeNi&#x2082;Si&#x2082;', 'CeNi&#x2082;Sn&#x2082;', 'CeNiGe&#x2082;', 'CeNiSn', 'CeO&#x2082;', 'CeP', 'CePd&#x2082;Al&#x2083;', 'CePd&#x2082;Si&#x2082;', 'CePd&#x2083;', 'CePdSn', 'CePt&#x2082;Si&#x2082;', 'CePt&#x2083;Si', 'CePtSn', 'CeRh&#x2082;Si&#x2082;', 'CeRh&#x2083;B&#x2082;', 'CeRhAs', 'CeRhGe', 'CeRhIn&#x2085;', 'CeRhSb', 'CeRhSn', 'CeRu&#x2082;', 'CeRu&#x2082;Ge&#x2082;', 'CeRu&#x2082;Si&#x2082;', 'CeRuRhSi&#x2082;', 'CeSb', 'CeSi&#x2081;.&#x2087;', 'CeSi&#x2082;', 'Co&#x2082;Al&#x2089;', 'Co&#x2082;B', 'Co&#x2082;Si', 'Co&#x2083;O&#x2084;', 'Co&#x2083;[VO&#x2084;]&#x2082;', 'CoAl', 'CoGa', 'CoO', 'CoPt', 'CoS&#x2082;', 'CoSb&#x2083;', 'CoSi', 'CoSi&#x2082;', 'Cr&#x2080;.&#x2084;&#x2088;Fe&#x2080;.&#x2085;&#x2082;', 'Cr&#x2080;.&#x2085;&#x2087;Mn&#x2080;.&#x2084;&#x2083;', 'Cr&#x2080;.&#x2085;Mn&#x2080;.&#x2085;As', 'Cr&#x2080;.&#x2086;Co&#x2080;.&#x2084;', 'Cr&#x2080;.&#x2087;&#x2088;Al&#x2080;.&#x2082;&#x2082;', 'Cr&#x2080;.&#x2089;&#x2083;&#x2083;&#x2085;Fe&#x2080;.&#x2080;&#x2086;&#x2086;&#x2085;', 'Cr&#x2080;.&#x2089;&#x2084;Mo&#x2080;.&#x2080;&#x2086;', 'Cr&#x2080;.&#x2089;&#x2085;Ru&#x2080;.&#x2080;&#x2085;', 'Cr&#x2082;&#x2083;C&#x2086;', 'Cr&#x2082;FeS&#x2084;', 'Cr&#x2082;O&#x2083;', 'Cr&#x2082;S&#x2083;', 'Cr&#x2083;C&#x2082;', 'Cr&#x2083;Si', 'Cr&#x2087;Al&#x2084;&#x2085;', 'Cr&#x2087;C&#x2083;', 'CrAs', 'CrB&#x2082;', 'CrN', 'CrO&#x2082;', 'CrSi&#x2082;', 'CrTe', 'Cs&#x2082;ZnI&#x2084;', 'CsBr', 'CsC&#x2088;', 'CsCl', 'CsI', 'Cu&#x2080;.&#x2081;&#x2085;Mn&#x2080;.&#x2088;&#x2085;', 'Cu&#x2080;.&#x2082;Zn&#x2080;.&#x2088;', 'Cu&#x2080;.&#x2085;Fe&#x2082;.&#x2085;O&#x2084;', 'Cu&#x2080;.&#x2085;Ni&#x2080;.&#x2085;', 'Cu&#x2080;.&#x2085;Zn&#x2080;.&#x2085;', 'Cu&#x2080;.&#x2087;&#x2085;Al&#x2080;.&#x2082;&#x2085;', 'Cu&#x2080;.&#x2088;&#x2085;Sn&#x2080;.&#x2081;&#x2085;', 'Cu&#x2080;.&#x2089;Mo&#x2083;S&#x2084;', 'Cu&#x2081;.&#x2080;&#x2085;Zn&#x2080;.&#x2089;&#x2085;', 'Cu&#x2081;.&#x2082;&#x2085;Sn', 'Cu&#x2081;.&#x2085;Al', 'Cu&#x2081;.&#x2088;S', 'Cu&#x2082;Ce', 'Cu&#x2082;CeSi&#x2082;', 'Cu&#x2082;GdSi&#x2082;', 'Cu&#x2082;Nd', 'Cu&#x2082;O', 'Cu&#x2082;S', 'Cu&#x2082;Se', 'Cu&#x2082;Te', 'Cu&#x2082;UGe&#x2082;', 'Cu&#x2082;USi&#x2082;', 'Cu&#x2082;Y', 'Cu&#x2082;Y&#x2082;O&#x2085;', 'Cu&#x2082;Yb&#x2080;.&#x2085;In&#x2080;.&#x2085;', 'Cu&#x2082;YbSi&#x2082;', 'Cu&#x2082;ZnSnS&#x2084;', 'Cu&#x2083;&#x2083;Al&#x2081;&#x2087;', 'Cu&#x2083;As', 'Cu&#x2083;Au', 'Cu&#x2083;Sb', 'Cu&#x2083;Sn', 'Cu&#x2084;&#x2081;Sn&#x2081;&#x2081;', 'Cu&#x2084;CeAl', 'Cu&#x2084;YbIn', 'Cu&#x2085;U', 'Cu&#x2085;Zn&#x2088;', 'Cu&#x2086;Ce', 'Cu&#x2089;Al&#x2084;', 'CuAl', 'CuAl&#x2082;', 'CuAu', 'CuBr', 'CuCe&#x2080;.&#x2081;&#x2085;Sm&#x2081;.&#x2088;&#x2085;O&#x2084;', 'CuCe&#x2080;.&#x2082;Nd&#x2081;.&#x2088;O&#x2084;', 'CuCe&#x2080;.&#x2082;Pr&#x2081;.&#x2088;O&#x2084;', 'CuCl', 'CuCr&#x2082;Se&#x2084;', 'CuCrO&#x2082;', 'CuFe&#x2082;O&#x2084;', 'CuFeO&#x2082;', 'CuGaS&#x2082;', 'CuGaSe&#x2082;', 'CuGd&#x2082;O&#x2084;', 'CuGeO&#x2083;', 'CuI', 'CuInS&#x2082;', 'CuInSe&#x2082;', 'CuInTe&#x2082;', 'CuIr&#x2082;S&#x2084;', 'CuLa&#x2082;O&#x2084;', 'CuLa&#x2082;O&#x2084;.&#x2081;', 'CuNd&#x2082;O&#x2084;', 'CuO', 'CuPr&#x2082;O&#x2084;', 'CuS', 'CuTi&#x2082;', 'CuV&#x2082;S&#x2084;', 'CuZn', 'Dy&#x2082;Fe&#x2081;&#x2084;B', 'Dy&#x2082;Fe&#x2081;&#x2087;', 'DyAl&#x2082;', 'DyCo&#x2082;', 'DyFe&#x2082;', 'DyFe&#x2084;Al&#x2088;', 'DyMn&#x2082;', 'DyMn&#x2082;O&#x2085;', 'DyMo&#x2082;Fe&#x2081;&#x2080;', 'DyTiFe&#x2081;&#x2081;', 'Dy[VO&#x2084;]', 'Er&#x2082;Fe&#x2081;&#x2084;B', 'Er&#x2082;Fe&#x2081;&#x2087;', 'Er&#x2082;Fe&#x2081;&#x2087;C&#x2083;', 'Er&#x2085;Si&#x2084;', 'ErAl&#x2082;', 'ErCo&#x2082;', 'ErFe&#x2082;', 'ErFeO&#x2083;', 'ErMn&#x2082;O&#x2085;', 'ErNi&#x2082;B&#x2082;C', 'ErRh&#x2084;B&#x2084;', 'ErTiFe&#x2081;&#x2081;', 'Eu&#x2080;.&#x2084;Yb&#x2080;.&#x2086;', 'Eu&#x2082;O&#x2083;', 'Eu&#x2084;Ga&#x2088;Ge&#x2081;&#x2085;', 'EuB&#x2086;', 'EuFe&#x2082;As&#x2082;', 'EuFe&#x2084;Sb&#x2081;&#x2082;', 'EuMo&#x2086;S&#x2088;', 'EuO', 'EuS', 'EuSe', 'EuTe', 'Fe&#x2080;.&#x2085;Ni&#x2080;.&#x2085;', 'Fe&#x2080;.&#x2085;Pd&#x2080;.&#x2085;', 'Fe&#x2080;.&#x2085;Pt&#x2080;.&#x2085;', 'Fe&#x2080;.&#x2089;&#x2082;O', 'Fe&#x2081;.&#x2081;&#x2081;Te', 'Fe&#x2081;.&#x2082;&#x2087;Sb', 'Fe&#x2082;As', 'Fe&#x2082;B', 'Fe&#x2082;CoO&#x2084;', 'Fe&#x2082;NiO&#x2084;', 'Fe&#x2082;O&#x2083;', 'Fe&#x2082;P', 'Fe&#x2083;Al', 'Fe&#x2083;C', 'Fe&#x2083;Ga', 'Fe&#x2083;O&#x2084;', 'Fe&#x2083;P', 'Fe&#x2083;Si', 'Fe&#x2084;Al&#x2081;&#x2083;', 'Fe&#x2084;N', 'Fe&#x2085;Si&#x2083;', 'Fe&#x2086;.&#x2084;Al&#x2081;&#x2082;.&#x2086;', 'FeAl', 'FeAl&#x2082;.&#x2088;', 'FeAs', 'FeB', 'FeBiO&#x2083;', 'FeCl&#x2082;', 'FeCo', 'FeCo&#x2082;Si', 'FeGaO&#x2083;', 'FeGe', 'FeGe&#x2082;', 'FeNi&#x2083;', 'FeO', 'FeP', 'FePt&#x2083;', 'FeRh', 'FeS', 'FeS&#x2082;', 'FeSb&#x2082;', 'FeSe', 'FeSi', 'FeSi&#x2082;', 'FeTe&#x2080;.&#x2085;Se&#x2080;.&#x2085;', 'Ga&#x2080;.&#x2086;&#x2087;Se', 'Ga&#x2080;.&#x2086;&#x2087;Te', 'Ga&#x2082;O&#x2083;', 'GaAs', 'GaN', 'GaP', 'GaS', 'GaSb', 'GaSe', 'GaTe', 'Ga[PO&#x2084;]', 'Gd&#x2082;Fe&#x2081;&#x2084;B', 'Gd&#x2082;Fe&#x2081;&#x2087;', 'Gd&#x2082;O&#x2083;', 'Gd&#x2082;[MoO&#x2084;]&#x2083;', 'Gd&#x2083;Co', 'Gd&#x2085;Ge&#x2082;.&#x2081;Si&#x2081;.&#x2089;', 'Gd&#x2085;Ge&#x2084;', 'GdAl&#x2082;', 'GdB&#x2086;', 'GdCo&#x2082;', 'GdCo&#x2085;', 'GdFe&#x2082;', 'GdFe&#x2083;[BO&#x2083;]&#x2084;', 'GdMn&#x2082;', 'GdMn&#x2082;Ge&#x2082;', 'GdMnO&#x2083;', 'GdN', 'GdNi&#x2082;', 'GdSi&#x2082;', 'GdTiFe&#x2081;&#x2081;', 'Ge&#x2080;.&#x2084;&#x2084;Si&#x2080;.&#x2085;&#x2086;', 'GeO&#x2082;', 'GeS', 'GeSe', 'GeSe&#x2082;', 'GeTe', 'H&#x2082;', 'H&#x2082;Cs[PO&#x2084;]', 'H&#x2082;K[PO&#x2084;]', 'H&#x2082;O', 'H&#x2082;Rb[PO&#x2084;]', 'H&#x2083;Na[SeO&#x2083;]&#x2082;', 'HK[CO&#x2083;]', 'H[NH&#x2084;]&#x2083;[SO&#x2084;]&#x2082;', 'H[NH&#x2084;][SeO&#x2084;]', 'HfB&#x2082;', 'HfC', 'HfO&#x2082;', 'HgCr&#x2082;S&#x2084;', 'HgCr&#x2082;Se&#x2084;', 'HgI&#x2082;', 'HgS', 'HgSe', 'HgTe', 'Ho&#x2082;Fe&#x2081;&#x2084;B', 'HoAl&#x2082;', 'HoCo&#x2082;', 'HoFe&#x2082;', 'HoMn&#x2082;O&#x2085;', 'HoMnO&#x2083;', 'HoNi&#x2082;', 'HoNi&#x2082;B&#x2082;C', 'In&#x2080;.&#x2086;&#x2087;Te', 'In&#x2080;.&#x2087;&#x2085;Sn&#x2080;.&#x2082;&#x2085;', 'In&#x2082;O&#x2083;', 'In&#x2082;S&#x2083;', 'In&#x2082;Se&#x2083;', 'InAs', 'InBi', 'InN', 'InP', 'InSb', 'InSe', 'InTe', 'K&#x2080;.&#x2084;&#x2087;&#x2084;Na&#x2080;.&#x2084;&#x2087;&#x2084;Li&#x2080;.&#x2080;&#x2085;&#x2082;Nb&#x2080;.&#x2089;&#x2084;&#x2088;Sb&#x2080;.&#x2080;&#x2085;&#x2082;O&#x2083;', 'K&#x2080;.&#x2084;La&#x2080;.&#x2086;MnO&#x2083;', 'K&#x2080;.&#x2085;Ba&#x2080;.&#x2085;BiO&#x2083;', 'K&#x2080;.&#x2085;Ba&#x2080;.&#x2085;Fe&#x2082;As&#x2082;', 'K&#x2080;.&#x2085;Na&#x2080;.&#x2085;NbO&#x2083;', 'K&#x2082;PtBr&#x2080;.&#x2083;[CN]&#x2084;[H&#x2082;O]&#x2083;', 'K&#x2082;[SeO&#x2084;]', 'K&#x2083;Mo&#x2081;&#x2080;O&#x2083;&#x2080;', 'K&#x2083;Na[SeO&#x2084;]&#x2082;', 'K&#x2083;[C&#x2086;&#x2080;]', 'KBr', 'KC&#x2082;&#x2084;', 'KC&#x2088;', 'KCl', 'KLi[SO&#x2084;]', 'KMnF&#x2083;', 'KNbO&#x2083;', 'KOs&#x2082;O&#x2086;', 'KTaO&#x2083;', 'KTi[PO&#x2084;]O', 'K[CN]', 'La&#x2080;.&#x2080;&#x2088;Zr&#x2080;.&#x2085;&#x2085;Ti&#x2080;.&#x2084;&#x2085;Pb&#x2080;.&#x2089;&#x2082;O&#x2083;', 'La&#x2080;.&#x2081;&#x2081;Zr&#x2080;.&#x2085;&#x2083;Ti&#x2080;.&#x2084;&#x2082;Pb&#x2080;.&#x2088;&#x2086;O&#x2083;', 'La&#x2080;.&#x2085;Ce&#x2080;.&#x2085;B&#x2086;', 'La&#x2080;.&#x2085;Ce&#x2080;.&#x2085;Ru&#x2082;Si&#x2082;', 'La&#x2080;.&#x2085;MnPb&#x2080;.&#x2085;O&#x2083;', 'La&#x2080;.&#x2088;Y&#x2080;.&#x2081;MnTe&#x2080;.&#x2081;O&#x2083;', 'La&#x2080;.&#x2089;MnTe&#x2080;.&#x2081;O&#x2083;', 'La&#x2082;NiO&#x2084;', 'La&#x2082;O&#x2083;', 'La&#x2083;Ga&#x2085;SiO&#x2081;&#x2084;', 'La&#x2083;S&#x2084;', 'LaAl&#x2082;', 'LaAlO&#x2083;', 'LaB&#x2086;', 'LaCoO&#x2083;', 'LaCr&#x2080;.&#x2085;Mn&#x2080;.&#x2085;O&#x2083;', 'LaCrO&#x2083;', 'LaF&#x2083;', 'LaFe&#x2081;&#x2081;Si&#x2082;', 'LaFe&#x2084;Sb&#x2081;&#x2082;', 'LaFe&#x2086;.&#x2085;Al&#x2086;.&#x2085;', 'LaFeAsO', 'LaFeAsO&#x2080;.&#x2089;F&#x2080;.&#x2081;', 'LaFeO&#x2083;', 'LaGaO&#x2083;', 'LaH&#x2083;', 'LaMn&#x2080;.&#x2085;Co&#x2080;.&#x2085;O&#x2083;', 'LaMn&#x2080;.&#x2085;Fe&#x2080;.&#x2085;O&#x2083;', 'LaMn&#x2082;Ge&#x2082;', 'LaMnO&#x2083;', 'LaNi&#x2085;', 'LaNiO&#x2083;', 'LaTiO&#x2083;', 'LaVO&#x2083;', 'Li&#x2080;.&#x2085;Fe&#x2082;.&#x2085;O&#x2084;', 'Li&#x2080;.&#x2085;Ni&#x2080;.&#x2085;O', 'Li&#x2082;Pd&#x2083;B', 'Li&#x2082;S', 'Li&#x2083;N', 'LiAl', 'LiBr', 'LiCl', 'LiCo&#x2080;.&#x2085;Ni&#x2080;.&#x2085;O&#x2082;', 'LiCoO&#x2082;', 'LiF', 'LiFe[PO&#x2084;]', 'LiH', 'LiMn&#x2080;.&#x2083;&#x2083;Co&#x2080;.&#x2083;&#x2083;Ni&#x2080;.&#x2083;&#x2083;O&#x2082;', 'LiMn&#x2080;.&#x2085;Ni&#x2080;.&#x2085;O&#x2082;', 'LiMn&#x2081;.&#x2085;Fe&#x2080;.&#x2085;O&#x2084;', 'LiMn&#x2082;O&#x2084;', 'LiNbO&#x2083;', 'LiNiO&#x2082;', 'LiTaO&#x2083;', 'LiTi&#x2082;O&#x2084;', 'LiV&#x2082;O&#x2085;', 'LiVO&#x2082;', 'LiYF&#x2084;', 'Li[NH&#x2084;][SO&#x2084;]', 'Lu&#x2082;Fe&#x2081;&#x2087;', 'Lu&#x2085;Ir&#x2084;Si&#x2081;&#x2080;', 'LuNi&#x2082;B&#x2082;C', 'Mg&#x2080;.&#x2082;&#x2081;Ti&#x2080;.&#x2083;&#x2086;Nb&#x2080;.&#x2084;&#x2083;PbO&#x2083;', 'Mg&#x2080;.&#x2083;&#x2083;Nb&#x2080;.&#x2086;&#x2087;PbO&#x2083;', 'Mg&#x2080;.&#x2085;Al&#x2080;.&#x2085;B&#x2082;', 'Mg&#x2081;&#x2087;Al&#x2081;&#x2082;', 'Mg&#x2082;&#x2084;Y&#x2085;', 'Mg&#x2082;&#x2088;Al&#x2084;&#x2085;', 'Mg&#x2082;Si', 'Mg&#x2082;Sn', 'Mg&#x2082;TiO&#x2084;', 'Mg&#x2082;[SiO&#x2084;]', 'Mg&#x2083;&#x2082;Zn&#x2083;&#x2081;.&#x2089;Al&#x2081;&#x2087;.&#x2081;', 'MgAl&#x2082;O&#x2084;', 'MgB&#x2082;', 'MgCr&#x2080;.&#x2082;Al&#x2081;.&#x2088;O&#x2084;', 'MgCu&#x2082;', 'MgF&#x2082;', 'MgFe&#x2082;O&#x2084;', 'MgFeAlO&#x2084;', 'MgFe[SiO&#x2084;]', 'MgO', 'MgSiO&#x2083;', 'MgZn&#x2082;', 'Mn&#x2080;.&#x2085;Fe&#x2080;.&#x2085;', 'Mn&#x2080;.&#x2088;&#x2086;&#x2081;Ni&#x2080;.&#x2081;&#x2083;&#x2089;', 'Mn&#x2081;&#x2081;Al&#x2081;&#x2085;', 'Mn&#x2081;.&#x2081;Sb', 'Mn&#x2083;C', 'Mn&#x2083;O&#x2084;', 'Mn&#x2085;&#x2085;Al&#x2082;&#x2082;&#x2086;.&#x2086;', 'Mn&#x2085;Si&#x2083;', 'MnAl&#x2086;', 'MnAs', 'MnAs&#x2080;.&#x2088;P&#x2080;.&#x2082;', 'MnBi', 'MnF&#x2082;', 'MnFe&#x2082;O&#x2084;', 'MnNi&#x2082;Ga', 'MnNi&#x2082;In', 'MnNi&#x2082;Sb', 'MnNi&#x2082;Sn', 'MnNiSb', 'MnO', 'MnO&#x2082;', 'MnP', 'MnS', 'MnSi', 'MnTe', 'Mo&#x2082;S&#x2083;', 'Mo&#x2083;Al&#x2088;', 'Mo&#x2084;O&#x2081;&#x2081;', 'Mo&#x2085;.&#x2081;Fe&#x2087;.&#x2089;', 'Mo&#x2086;PbS&#x2088;', 'Mo&#x2087;Ni&#x2087;', 'MoB&#x2082;', 'MoC&#x2080;.&#x2085;', 'MoC&#x2080;.&#x2086;&#x2087;', 'MoC&#x2080;.&#x2087;&#x2080;', 'MoO&#x2083;', 'MoS&#x2082;', 'MoSi&#x2082;', 'Na&#x2080;.&#x2082;&#x2085;Pr&#x2080;.&#x2087;&#x2085;MnO&#x2083;', 'Na&#x2080;.&#x2082;La&#x2080;.&#x2088;MnO&#x2083;', 'Na&#x2080;.&#x2083;&#x2085;CoO&#x2082;[H&#x2082;O]&#x2081;.&#x2083;', 'Na&#x2080;.&#x2085;&#x2086;V&#x2082;O&#x2085;', 'Na&#x2080;.&#x2085;CoO&#x2082;', 'Na&#x2080;.&#x2085;TiBi&#x2080;.&#x2085;O&#x2083;', 'NaBr', 'NaCl', 'NaF', 'NaI', 'NaNbO&#x2083;', 'Na[NO&#x2082;]', 'Na[NO&#x2083;]', 'Nb&#x2080;.&#x2085;Fe&#x2080;.&#x2085;PbO&#x2083;', 'Nb&#x2080;.&#x2086;&#x2081;Mo&#x2080;.&#x2083;&#x2089;', 'Nb&#x2082;Al', 'Nb&#x2083;.&#x2080;&#x2084;Al&#x2080;.&#x2089;&#x2086;', 'Nb&#x2083;FeSe&#x2086;', 'Nb&#x2083;Ge', 'Nb&#x2083;Si', 'Nb&#x2083;Sn', 'Nb&#x2085;Si&#x2083;', 'Nb&#x2087;Ni&#x2086;', 'NbAl&#x2083;', 'NbB&#x2082;', 'NbC', 'NbC&#x2080;.&#x2089;&#x2085;', 'NbCr&#x2082;', 'NbFe&#x2082;', 'NbH', 'NbN', 'NbNi&#x2083;', 'NbO&#x2082;', 'NbSe&#x2082;', 'NbSe&#x2083;', 'NbSi&#x2082;', 'Nd&#x2082;Co&#x2081;&#x2084;B', 'Nd&#x2082;Fe&#x2081;&#x2083;CoB', 'Nd&#x2082;Fe&#x2081;&#x2084;B', 'Nd&#x2082;Fe&#x2081;&#x2087;', 'Nd&#x2082;O&#x2083;', 'Nd&#x2083;Ti&#x2081;&#x2084;.&#x2085;Fe&#x2081;&#x2084;.&#x2085;', 'Nd&#x2086;Fe&#x2081;&#x2081;Al&#x2083;', 'NdAl&#x2082;', 'NdB&#x2086;', 'NdCo&#x2082;', 'NdCo&#x2085;', 'NdFeAsO', 'NdFeO&#x2083;', 'NdMn&#x2082;Ge&#x2082;', 'NdMnFeGe&#x2082;', 'NdMnO&#x2083;', 'NdMo&#x2082;Fe&#x2081;&#x2080;', 'NdNiO&#x2083;', 'NdTiFe&#x2081;&#x2081;', 'NdTiO&#x2083;', 'NdV&#x2082;Fe&#x2081;&#x2080;', 'Ni&#x2080;.&#x2085;Pd&#x2080;.&#x2085;', 'Ni&#x2080;.&#x2085;Pt&#x2080;.&#x2085;', 'Ni&#x2082;Al&#x2083;', 'Ni&#x2082;B', 'Ni&#x2082;Si', 'Ni&#x2083;&#x2081;Si&#x2081;&#x2082;', 'Ni&#x2083;Al', 'Ni&#x2083;B', 'Ni&#x2083;Si', 'Ni&#x2083;[VO&#x2084;]&#x2082;', 'Ni&#x2084;B&#x2083;', 'NiAl', 'NiAl&#x2083;', 'NiO', 'NiS', 'NiS&#x2082;', 'NiSb', 'NiSi', 'NiSi&#x2082;', 'NpPd&#x2085;Al&#x2082;', 'O&#x2082;', 'Pb&#x2080;.&#x2085;Sn&#x2080;.&#x2085;Te', 'Pb&#x2085;[GeO&#x2084;][Ge&#x2082;O&#x2087;]', 'PbF&#x2082;', 'PbI&#x2082;', 'PbO', 'PbO&#x2082;', 'PbS', 'PbSe', 'PbTe', 'Pb[WO&#x2084;]', 'Pd&#x2082;Si', 'PdAl', 'PdH', 'Pr&#x2082;Fe&#x2081;&#x2084;B', 'Pr&#x2082;O&#x2083;', 'PrAl&#x2082;', 'PrB&#x2086;', 'PrCo&#x2085;', 'PrFe&#x2082;Ge&#x2082;', 'PrFe&#x2084;P&#x2081;&#x2082;', 'PrFeAsO', 'PrMn&#x2082;Ge&#x2082;', 'PrMnO&#x2083;', 'PrNi&#x2082;Si&#x2082;', 'PrNi&#x2085;', 'PrOs&#x2084;Sb&#x2081;&#x2082;', 'Rb&#x2082;ZnBr&#x2084;', 'Rb&#x2082;ZnCl&#x2084;', 'Rb&#x2083;[C&#x2086;&#x2080;]', 'RbBr', 'RbCl', 'RbF', 'RbI', 'RbLi[SO&#x2084;]', 'Rb[C&#x2086;&#x2080;]', 'ReO&#x2083;', 'RuAl&#x2082;', 'Sb&#x2082;S&#x2083;', 'Sb&#x2082;Se&#x2083;', 'Sb&#x2082;Te&#x2083;', 'SbSI', 'Sc&#x2080;.&#x2085;Nb&#x2080;.&#x2085;PbO&#x2083;', 'Sc&#x2082;[WO&#x2084;]&#x2083;', 'ScAl&#x2083;', 'Si&#x2083;N&#x2084;', 'SiC', 'SiO&#x2082;', 'Sm&#x2082;Co&#x2081;&#x2087;', 'Sm&#x2082;Fe&#x2081;&#x2087;', 'Sm&#x2082;Fe&#x2081;&#x2087;N&#x2083;', 'Sm&#x2082;O&#x2083;', 'SmB&#x2086;', 'SmCo&#x2085;', 'SmFeAsO', 'SmFeAsO&#x2080;.&#x2089;F&#x2080;.&#x2081;', 'SmMn&#x2082;Ge&#x2082;', 'SmS', 'SmTiFe&#x2081;&#x2081;', 'Sn&#x2080;.&#x2085;Sb&#x2080;.&#x2085;', 'SnO&#x2082;', 'SnS', 'SnS&#x2082;', 'SnSe', 'SnSe&#x2082;', 'SnTe', 'Sr&#x2080;.&#x2081;&#x2085;Cu&#x2080;.&#x2085;La&#x2081;.&#x2088;&#x2085;Ni&#x2080;.&#x2085;O&#x2084;', 'Sr&#x2080;.&#x2081;&#x2085;La&#x2080;.&#x2088;&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2081;&#x2086;CuLa&#x2081;.&#x2088;&#x2084;O&#x2084;', 'Sr&#x2080;.&#x2082;&#x2085;La&#x2080;.&#x2087;&#x2085;CrO&#x2083;', 'Sr&#x2080;.&#x2082;Ca&#x2080;.&#x2083;La&#x2080;.&#x2083;Eu&#x2080;.&#x2082;MnO&#x2083;', 'Sr&#x2080;.&#x2082;Ca&#x2080;.&#x2083;La&#x2080;.&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2082;CuLa&#x2081;.&#x2086;Nd&#x2080;.&#x2082;O&#x2084;', 'Sr&#x2080;.&#x2082;CuLa&#x2081;.&#x2088;O&#x2084;', 'Sr&#x2080;.&#x2083;Ca&#x2080;.&#x2082;&#x2082;Pr&#x2080;.&#x2084;&#x2088;MnO&#x2083;', 'Sr&#x2080;.&#x2083;La&#x2080;.&#x2087;MnO&#x2083;', 'Sr&#x2080;.&#x2083;Nd&#x2080;.&#x2087;MnO&#x2083;', 'Sr&#x2080;.&#x2085;Eu&#x2080;.&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2085;La&#x2080;.&#x2085;CoO&#x2083;', 'Sr&#x2080;.&#x2085;La&#x2080;.&#x2085;FeO&#x2083;', 'Sr&#x2080;.&#x2085;La&#x2080;.&#x2085;Mn&#x2080;.&#x2085;Fe&#x2080;.&#x2085;O&#x2083;', 'Sr&#x2080;.&#x2085;La&#x2080;.&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2085;La&#x2080;.&#x2085;Ti&#x2080;.&#x2085;Mn&#x2080;.&#x2085;O&#x2083;', 'Sr&#x2080;.&#x2085;MnBi&#x2080;.&#x2085;O&#x2083;', 'Sr&#x2080;.&#x2085;Nd&#x2080;.&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2085;Pr&#x2080;.&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2085;Sm&#x2080;.&#x2085;MnO&#x2083;', 'Sr&#x2080;.&#x2086;La&#x2080;.&#x2084;Fe&#x2080;.&#x2084;Co&#x2080;.&#x2086;O&#x2083;', 'Sr&#x2080;.&#x2088;La&#x2080;.&#x2082;TiO&#x2083;', 'Sr&#x2081;&#x2084;Cu&#x2082;&#x2084;O&#x2084;&#x2081;', 'Sr&#x2081;.&#x2085;&#x2085;CaCu&#x2082;Y&#x2080;.&#x2082;&#x2086;Bi&#x2082;O&#x2088;.&#x2081;&#x2082;', 'Sr&#x2081;.&#x2087;&#x2088;Ca&#x2080;.&#x2087;&#x2082;Cu&#x2081;.&#x2088;&#x2086;Bi&#x2081;.&#x2089;&#x2084;O&#x2088;.&#x2084;', 'Sr&#x2081;.&#x2088;Ca&#x2081;.&#x2082;Cu&#x2082;Bi&#x2082;O&#x2088;', 'Sr&#x2082;Ca&#x2080;.&#x2083;Cu&#x2083;Y&#x2080;.&#x2087;Pb&#x2082;O&#x2088;', 'Sr&#x2082;Ca&#x2081;.&#x2087;Cu&#x2083;Pb&#x2080;.&#x2083;Bi&#x2082;O&#x2081;&#x2080;', 'Sr&#x2082;CaCu&#x2082;Bi&#x2082;O&#x2088;', 'Sr&#x2082;CaCu&#x2082;Pb&#x2080;.&#x2084;Bi&#x2081;.&#x2086;O&#x2088;', 'Sr&#x2082;CaCu&#x2082;Pb&#x2080;.&#x2084;Bi&#x2081;.&#x2086;O&#x2088;.&#x2087;&#x2082;', 'Sr&#x2082;Cu&#x2082;CeEuRuO&#x2081;&#x2080;', 'Sr&#x2082;Cu&#x2082;GdRuO&#x2088;', 'Sr&#x2082;CuBi&#x2082;O&#x2086;', 'Sr&#x2082;LaMn&#x2082;O&#x2087;', 'Sr&#x2082;MoFeO&#x2086;', 'Sr&#x2082;RuO&#x2084;', 'SrAl&#x2084;', 'SrCoO&#x2083;', 'SrCuLaO&#x2084;', 'SrF&#x2082;', 'SrFe&#x2081;&#x2082;O&#x2081;&#x2089;', 'SrFe&#x2082;As&#x2082;', 'SrFeO&#x2083;', 'SrLaMnO&#x2084;', 'SrLaNiO&#x2084;', 'SrMnO&#x2083;', 'SrNb&#x2082;Bi&#x2082;O&#x2089;', 'SrO', 'SrRuO&#x2083;', 'SrTa&#x2082;Bi&#x2082;O&#x2089;', 'SrTiO&#x2083;', 'SrZrO&#x2083;', 'TaC', 'TaC&#x2080;.&#x2089;&#x2085;', 'TaS&#x2082;', 'TaS&#x2083;', 'TaSe&#x2082;', 'Tb&#x2080;.&#x2082;&#x2085;Ho&#x2080;.&#x2087;&#x2085;Fe&#x2081;.&#x2089;&#x2085;', 'Tb&#x2080;.&#x2083;Dy&#x2080;.&#x2087;Fe&#x2082;', 'Tb&#x2083;Fe&#x2085;O&#x2081;&#x2082;', 'Tb&#x2085;Ge&#x2081;.&#x2085;Si&#x2082;.&#x2085;', 'TbFe&#x2082;', 'TbMn&#x2082;', 'TbMn&#x2082;O&#x2085;', 'TbMnO&#x2083;', 'TbNi&#x2082;Si&#x2082;', 'TbRh&#x2082;Si&#x2082;', 'TbTiFe&#x2081;&#x2081;', 'TeO&#x2082;', 'ThO&#x2082;', 'Ti&#x2082;Ni', 'Ti&#x2082;O&#x2083;', 'Ti&#x2083;Al', 'Ti&#x2083;Bi&#x2084;O&#x2081;&#x2082;', 'Ti&#x2085;Si&#x2083;', 'TiAl', 'TiAl&#x2082;', 'TiAl&#x2083;', 'TiB&#x2082;', 'TiC', 'TiC&#x2080;.&#x2089;&#x2085;', 'TiCo', 'TiCo&#x2082;Al', 'TiCo&#x2082;Sn', 'TiCoSb', 'TiCr&#x2082;', 'TiFe', 'TiFe&#x2082;', 'TiFeO&#x2083;', 'TiH&#x2082;', 'TiN', 'TiNi', 'TiNi&#x2083;', 'TiO', 'TiO&#x2082;', 'TiPbO&#x2083;', 'TiS&#x2082;', 'TiSe&#x2082;', 'TiSi&#x2082;', 'TiVO&#x2083;', 'Tl&#x2082;S', 'Tl&#x2085;Se&#x2083;', 'Tl&#x2085;Te&#x2083;', 'TlBr', 'TlCl', 'TlGaSe&#x2082;', 'TlI', 'TlInS&#x2082;', 'TlS', 'TlSe', 'TlTe', 'Tm&#x2082;Fe&#x2081;&#x2084;B', 'TmSe', 'TmTe', 'U&#x2082;C&#x2083;', 'U&#x2082;Ni&#x2082;Sn', 'U&#x2082;Pt&#x2082;In', 'U&#x2086;Fe', 'UAl&#x2082;', 'UAs', 'UC&#x2082;', 'UCo&#x2082;Ge&#x2082;', 'UCoAl', 'UFe&#x2081;&#x2080;Si&#x2082;', 'UFe&#x2082;', 'UFe&#x2084;Al&#x2088;', 'UGe&#x2082;', 'UMn&#x2082;', 'UNi&#x2082;Al&#x2083;', 'UNiAl', 'UNiGa', 'UNiSn', 'UO&#x2082;', 'UPd&#x2082;Al&#x2083;', 'UPd&#x2083;', 'UPdSn', 'UPt&#x2083;', 'UPtGe', 'URu&#x2082;Si&#x2082;', 'USb', 'UTe', 'V&#x2080;.&#x2085;Cr&#x2080;.&#x2085;', 'V&#x2080;.&#x2085;Fe&#x2080;.&#x2085;', 'V&#x2081;.&#x2089;&#x2086;Cr&#x2080;.&#x2080;&#x2084;O&#x2083;', 'V&#x2082;MnO&#x2084;', 'V&#x2082;O&#x2083;', 'V&#x2082;O&#x2085;', 'V&#x2083;Ga', 'V&#x2083;Ge', 'V&#x2083;O&#x2085;', 'V&#x2083;Si', 'V&#x2084;O&#x2087;', 'V&#x2085;Al&#x2088;', 'V&#x2085;O&#x2089;', 'V&#x2086;O&#x2081;&#x2081;', 'V&#x2086;O&#x2081;&#x2083;', 'V&#x2087;O&#x2081;&#x2083;', 'VAl&#x2083;', 'VC&#x2080;.&#x2085;', 'VC&#x2080;.&#x2088;&#x2088;', 'VFe&#x2082;Al', 'VO&#x2082;', 'VSe&#x2082;', 'W&#x2082;C', 'W&#x2085;.&#x2081;Fe&#x2087;.&#x2089;', 'WBi&#x2082;O&#x2086;', 'WC&#x2080;.&#x2088;', 'WMnO&#x2084;', 'WO&#x2083;', 'WSi&#x2082;', 'Y&#x2080;.&#x2082;Eu&#x2080;.&#x2088;MnO&#x2083;', 'Y&#x2080;.&#x2082;Zr&#x2080;.&#x2088;O&#x2081;.&#x2089;', 'Y&#x2080;.&#x2085;Gd&#x2080;.&#x2085;', 'Y&#x2082;Co&#x2081;&#x2087;', 'Y&#x2082;Fe&#x2081;&#x2084;B', 'Y&#x2082;Fe&#x2081;&#x2087;', 'Y&#x2082;O&#x2083;', 'Y&#x2083;Al&#x2085;O&#x2081;&#x2082;', 'Y&#x2083;Fe&#x2085;O&#x2081;&#x2082;', 'YAl&#x2082;', 'YAl&#x2083;', 'YB&#x2086;', 'YCo&#x2081;.&#x2088;Al&#x2080;.&#x2082;', 'YCo&#x2082;', 'YCo&#x2083;', 'YCo&#x2084;B', 'YCo&#x2085;', 'YFe&#x2082;', 'YFe&#x2084;Al&#x2088;', 'YH&#x2083;', 'YMn&#x2082;', 'YMnO&#x2083;', 'YMo&#x2082;Fe&#x2081;&#x2080;', 'YNi&#x2082;B&#x2082;C', 'YTiFe&#x2081;&#x2081;', 'YTiO&#x2083;', 'YV&#x2082;Fe&#x2081;&#x2080;', 'YVO&#x2083;', 'Yb&#x2082;O&#x2083;', 'Yb&#x2084;As&#x2083;', 'YbAl&#x2083;', 'YbFe&#x2084;Sb&#x2081;&#x2082;', 'YbMnO&#x2083;', 'YbRh&#x2082;Si&#x2082;', 'Zn&#x2080;.&#x2082;Co&#x2080;.&#x2088;O', 'Zn&#x2080;.&#x2083;&#x2081;&#x2088;Ti&#x2080;.&#x2080;&#x2084;&#x2085;Nb&#x2080;.&#x2086;&#x2083;&#x2087;PbO&#x2083;', 'Zn&#x2080;.&#x2085;Cd&#x2080;.&#x2085;Te', 'Zn&#x2080;.&#x2085;Fe&#x2082;Co&#x2080;.&#x2085;O&#x2084;', 'Zn&#x2080;.&#x2085;Fe&#x2082;Ni&#x2080;.&#x2085;O&#x2084;', 'Zn&#x2080;.&#x2085;Mn&#x2080;.&#x2085;Fe&#x2082;O&#x2084;', 'Zn&#x2080;.&#x2088;Co&#x2080;.&#x2082;O', 'Zn&#x2080;.&#x2089;&#x2083;Mn&#x2080;.&#x2080;&#x2087;O', 'Zn&#x2081;&#x2080;Fe&#x2083;', 'Zn&#x2082;Zr', 'Zn&#x2083;As&#x2082;', 'Zn&#x2083;P&#x2082;', 'Zn&#x2086;.&#x2086;&#x2087;Sb&#x2085;', 'ZnCr&#x2082;O&#x2084;', 'ZnCr&#x2082;Se&#x2084;', 'ZnF&#x2082;', 'ZnFe&#x2082;O&#x2084;', 'ZnGeP&#x2082;', 'ZnO', 'ZnS', 'ZnSe', 'ZnSiP&#x2082;', 'ZnTe', 'Zr&#x2080;.&#x2085;Ti&#x2080;.&#x2085;PbO&#x2083;', 'Zr&#x2082;Ni', 'ZrAl&#x2082;', 'ZrAl&#x2083;', 'ZrB&#x2082;', 'ZrC', 'ZrC&#x2080;.&#x2089;&#x2085;', 'ZrCo&#x2082;', 'ZrCr&#x2082;', 'ZrFe&#x2082;', 'ZrMn&#x2082;', 'ZrMo&#x2082;', 'ZrN', 'ZrNiSn', 'ZrO&#x2082;', 'ZrPbO&#x2083;', 'ZrV&#x2082;', 'Zr[WO&#x2084;]&#x2082;', '[NH&#x2084;]&#x2082;ZnCl&#x2084;'];
+
+function debounce(func, wait, immediate){
+    var timeout;
+    return function(){
+        var context = this,
+            args = arguments;
+        var later = function(){
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        }
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    }
+}
+
+function is_inview(element){
+    var pageTop = $(window).scrollTop(),
+        pageBottom = pageTop + $(window).height(),
+        elementTop = $(element).offset().top,
+        elementBottom = elementTop + $(element).height();
+    return ((elementTop <= pageBottom) && (elementBottom >= pageTop));
+}
+
+function update_menu(){
+    $('#menu a').removeClass('active');
+    var tol = 3, cnt = 0;
+    $('#content .view').each(function(){
+        if (is_inview(this)){
+            var h3 = $(this).nearest('h3', {onlyY: true, directionConstraints: ['top']}).attr('id');
+            var h2 = $(this).nearest('h2', {onlyY: true, directionConstraints: ['top']}).attr('id');
+            $('#menu a[href="#' + h3 + '"]').addClass('active');
+            $('#menu a[href="#' + h2 + '"]').addClass('active');
+            cnt++;
+            if (cnt == tol) return false;
         }
     });
+}
+
+$(document).ready(function(){
+    if ($('#menu').is(':visible')){
+        var menu = '<ul>';
+        $('h2, h3').each(function(){
+            var that = $(this),
+                active_cls = '',
+                hlevel = that.prop('tagName'),
+                value = that.text(),
+                href = that.attr('id');
+            if (is_inview(that)) active_cls = ' class="active"';
+
+            if (hlevel == 'H2') menu += '<li><a' + active_cls + ' href="#' + href + '">' + value + '</a></li>';
+            else if (hlevel == 'H3') menu += '<li><ul><li><a' + active_cls + ' href="#' + href + '">' + value + '</a></li></ul></li>';
+        });
+        menu += '</ul>';
+        $('#menu').append(menu);
+
+        $(window).scroll(debounce(update_menu, 300));
+    }
+
+    $.getJSON("https://mpds.io/wmdata.json", function(data){
+        var classes_html = '';
+        data.classes.sort();
+        $.each(data.classes, function(key, value){
+            if (value.indexOf('zeolite ') !== -1) return true;
+            classes_html += '<a href="https://mpds.io/#search/'+value+'">'+value+'</a>';
+        });
+        $('#mpds_categs_classes').append(classes_html);
+    });
+
+    var formulae_html = '';
+    $.each(window.formulae_ex, function(key, value){
+        formulae_html += '<a href="https://mpds.io/#search/'+value+'">'+value+'</a>';
+    });
+    $('#mpds_categs_formulae').append(formulae_html);
 });
 </script>
 </head>
 <body class="sky">
 
     <div id="nav"><ul>
-        <li id="start_link"><a href="https://mpds.io">Start</a></li>
+        <li id="start_link"><a href="https://mpds.io/#start">Start</a></li>
         <li><a href="http://datascience.mpds.io">Manual</a></li>
         <li><a href="http://developer.mpds.io">API</a></li>
         <li><a href="https://mpds.io/#products">Products</a></li>
     </ul></div>
+
+    <div id="menu"></div>
 
     <div id="main">
         <div id="landing_box">
@@ -100,9 +256,58 @@ $(document).ready(function(){
         <div class="spacer"></div>
 
         <div id="content">
-            <p style="background:#DBF2FF;">Dear materials scientists! We are happy to welcome you here.</p>
+            <p style="background:#F2FFF4;">Dear physicists, chemists, and engineers! We are happy to welcome you here. We know that you nowadays have to process very large amounts of information while research, so we have created MPDS to assist you.</p>
 
-            <div id="mpds_categ_vis" class="view"></div>
+            <p>The MPDS contains materials data, manually extracted by our experts from scientific publications. We don't believe this task can be somehow automatized and since 1993 we process scientific articles in physics, chemistry, materials science <i>etc.</i> literally by hands. The result is now in front of you.</p>
+
+            <h2 id="LPF">&sect;1. What is PAULING FILE?</h2>
+
+            <p class="view">The PAULING FILE is the relational database for materials scientists, grouping crystallographic data, phase diagrams, and physical properties of inorganic crystalline substances under the same frame. The focus is put on the experimental observations, and the data are processed from the original publications, covering world scientific literature from 1891 to present date. Each individual crystal structure, phase diagram, or physical property database entry originates from a particular publication.</p>
+
+            <h2 id="Platform">&sect;2. What is MPDS platform?</h2>
+
+            <h3 id="MPDS-intro">&sect;2.1. Introduction</h3>
+
+            <p class="view">The MPDS platform is the online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and uniform application programming interface (<strong>API</strong>). Here the browser user interface (<strong>GUI</strong>) is described.</p>
+
+            <p class="view">Search of data at MPDS platform is possible according to 11 criteria: 7 in physics and chemistry (materials classes, physical properties, chemical elements, chemical formulae, space groups, crystal systems, prototypes) and 4 in bibliography (publication author, years, journal, and DOI). There are two search modes: <i>basic</i> and <i>advanced</i>.</p>
+
+            <p>In the <i>basic</i> mode different search terms can be typed in a single input field. The most frequently used criteria are supported in this field: materials classes, physical properties, chemical elements, chemical formulae, and crystal systems. In the <i>advanced</i> mode each of 11 search criteria has its own input field. Let us get acquainted with the meaning and proper usage of each search criterion.</p>
+
+            <h3 id="Classes">&sect;2.2. Materials classes</h3>
+
+            <p class="view">Various materials classes are collected in this category, ranging from technical terms to physical categories, chemical names, periodic table groups, some isotope names <i>etc.</i> There are also lot of auxiliary terms, <i>e.g.</i> <a href="https://mpds.io/#search/cell-only">cell-only</a>, <a href="https://mpds.io/#search/cell%20and%20atoms">cell and atoms</a>, <a href="https://mpds.io/#search/disordered">disordered</a>, and <a href="https://mpds.io/#search/non-disordered">non-disordered</a>, applicable to crystalline structures only. The term <a href="https://mpds.io/#search/ab%20initio">ab initio</a> refers to data taken from modeling papers. The most frequently occurring terms are collected below alphabetically.</p>
+
+            <div id="mpds_categs_classes" class="mpds_categs view"></div>
+            <div class="caption view"><b>Listing 1.</b> The most frequently occurring materials classes.</div>
+
+            <p class="view">Moreover, the majority of the known mineral names are supported, <i>e.g.</i> <a href="https://mpds.io/#search/perovskite">perovskite</a>, <a href="https://mpds.io/#search/baddeleyite">baddeleyite</a>, <a href="https://mpds.io/#search/stishovite">stishovite</a>, <a href="https://mpds.io/#search/yeelimite">yeelimite</a> <i>etc.</i></p>
+
+            <h3 id="Properties">&sect;2.3. Physical properties</h3>
+
+            <p class="view">The supported physical properties are given by the <a href="https://mpds.io/#hierarchy">MPDS hierarchy</a>. A search for a high-order property assumes all the subordinate properties. In addition, even more general terms like <a href="https://mpds.io/#search/spin">spin</a> or <a href="https://mpds.io/#search/pressure">pressure</a> are supported (the search yields all the physical properties containing this term).</p>
+
+            <h3 id="Elements">&sect;2.4. Chemical elements</h3>
+
+            <p class="view">Chemical elements can be typed as full names or symbols. Obviously, chemical elements can be combined arbitrary in search, using spaces, commas, or dashes as separators. By default, equal or greater number of elements is implied, <i>e.g.</i> the results for <a href="https://mpds.io/#search/Cd-O-S">Cd-O-S</a> will also contain Tl, H, N, K <i>etc.</i> To restrict the elements count, special <strong>materials classes</strong> <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, or <a href="https://mpds.io/#search/quinary">quinary</a> should be added, <i>e.g.</i> like this: <a href="https://mpds.io/#search/Cd-O-S%20ternary">Cd-O-S ternary</a>.</p>
+
+            <h3 id="Formulae">&sect;2.5. Chemical formulae</h3>
+
+            <p class="view">In the chemical formulae order of elements does not matter. However the results will contain the chemical formulae with the standard order of elements (according to their electronegativity). For instance, the 1000 most frequently occurring chemical formulae are listed below alphabetically.</p>
+
+            <div id="mpds_categs_formulae" class="mpds_categs view"></div>
+            <div class="caption view"><b>Listing 2.</b> 1000 most frequently occurring chemical formulae.</div>
+
+            <!-- h3 id="Spacegroups">&sect;2.6. Crystal systems and space groups</h3>
+            <p class="view">Paragraph content</p>
+            <h3 id="Prototypes">&sect;2.7. Prototype systems</h3>
+            <p class="view">Paragraph content</p>
+            <h3 id="Prototypes">&sect;2.8. Bibliography</h3>
+            <p class="view">Paragraph content</p -->
+
+            <p style="background:#fff;">This draft of user's documentation is constantly updated. Please, check back soon!</p>
+
+            <p style="background:#F2FFF4;">Thanks for reading! Please do not hesitate to <a href="mailto:feedback@tilde.pro">contact us</a> if you have any feedback or questions.</p>
         </div>
     </div>
 
@@ -111,5 +316,11 @@ $(document).ready(function(){
     <div id="twitter"><a href="https://twitter.com/mpdsio" target="_blank" rel="noopener noreferrer">Twitter @mpdsio</a></div>
 
     <div id="footer">Created by <a href="http://paulingfile.com" target="_blank">Materials Phase Data System</a> and <a href="https://tilde.pro" target="_blank">Tilde Materials Informatics</a>.</div>
+
+    <div class="github-fork-ribbon-wrapper right">
+        <div class="github-fork-ribbon">
+            <a href="https://github.com/mpds-io/datascience" target="_top">See on GitHub</a>
+        </div>
+    </div>
 </body>
 </html>
