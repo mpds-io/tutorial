@@ -3,6 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Materials Platform for Data Science" />
+<meta property="og:site_name" content="MPDS.IO"/>
+<meta property="og:description" content="Online PAULING FILE materials database with nearly 2 million data entries (physical properties, crystal structures, phase diagrams) available via API, ready for modern data-intensive applications." />
+<meta property="og:image" content="https://mpds.io/wm_logo_opt.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="225" />
+<meta property="og:image:height" content="224" />
+<meta property="og:url" content="https://mpds.io">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mpdsio" />
+<meta name="twitter:title" content="Materials Platform for Data Science" />
+<meta name="twitter:creator" content="@tildepro" />
+<meta name="twitter:image" content="https://mpds.io/wm_logo_opt.png" />
+<meta name="twitter:image:alt" content="Online materials data-mining platform" />
+<meta name="twitter:description" content="Online PAULING FILE materials database with nearly 2 million data entries (physical properties, crystal structures, phase diagrams) available via API, ready for modern data-intensive applications." />
+<meta name="description" content="Online PAULING FILE materials database with nearly 2 million data entries (physical properties, crystal structures, phase diagrams) available via API, ready for modern data-intensive applications." />
+<meta name="keywords" content="materials platform, physical properties, phase diagrams, crystalline structures, materials database, PAULING FILE" />
+<meta name="subject" content="materials informatics" />
+<meta name="url" content="https://mpds.io" />
+<meta name="rating" content="General" />
+<meta name="author" content="feedback@tilde.pro" />
+<meta name="robots" content="notranslate" />
 <title>MPDS: introduction for materials scientists</title>
 <style>
 /* COMMON */
@@ -22,10 +45,11 @@ background-attachment:fixed;
 
 /* COMMON NAVBAR START */
 
-#nav{position:fixed;top:0;left:0;height:34px;z-index:101;background:#fff;font-size:0.9em;padding:0 3px;border-bottom-right-radius:4px;line-height:33px;border-bottom:1px solid #888;border-right:1px solid #888;cursor:pointer;box-shadow:4px 4px 4px -4px rgba(0,0,0,0.5);}
+#nav{position:fixed;top:0;left:0;height:34px;z-index:101;background:#fff;font-size:0.9em;padding:0 3px;border-bottom-right-radius:4px;line-height:33px;border-bottom:1px solid #888;border-right:1px solid #888;cursor:pointer;box-shadow:6px 6px 4px -3px rgba(0,0,0,0.4);}
 #nav li{list-style:none;float:left;font-weight:bold;margin:0 7px;}
 #nav a{text-decoration:none;color:#555;font-family:Arial;}
 #nav a:hover{border-bottom:1px solid #000;}
+li.nav_fluid{display:none;}
 
 /* COMMON NAVBAR END */
 
@@ -77,10 +101,10 @@ div.mpds_categs{margin:20px 0;}
 /* LOGOS */
 
 #landing_box{width:590px;margin:0 auto;height:170px;padding:20px 0;}
-#logo_l{float:left;width:230px;margin-left:40px;font-size:3em;text-align:right;padding-top:38px;letter-spacing:24px;color:#555;font-weight:normal;}
+#logo_l{float:left;width:230px;margin-left:25px;font-size:3em;text-align:right;padding-top:38px;letter-spacing:24px;color:#555;font-weight:normal;}
 #logo{float:left;width:140px;height:130px;background:url(https://raw.githubusercontent.com/mpds-io/datascience/gh-pages/mpds.png) center center no-repeat;background-size:85%;}
 #logo_r{float:left;width:165px;margin-left:15px;font-size:1.2em;line-height:1.3em;text-align:left;font-weight:normal;padding-top:42px;color:#555;}
-#motto{clear:both;width:100%;height:33px;text-align:left;padding-top:20px;padding-left:140px;letter-spacing:0.5px;font-size:0.95em;color:#333;}
+#motto{clear:both;width:100%;height:33px;text-align:left;padding-top:20px;padding-left:80px;letter-spacing:0.5px;font-size:0.95em;color:#333;}
 #motto a{text-decoration:none;color:#333;border-bottom:1px solid #333;}
 
 /* FOOTER */
@@ -90,6 +114,12 @@ div.mpds_categs{margin:20px 0;}
 #footer a{text-decoration:none;color:#888;border-bottom:1px solid #888;font-family:Georgia;}
 #twitter{position:fixed;z-index:3;bottom:0;left:0;width:13.5%;height:32px;text-align:center;}
 #twitter a{text-decoration:none;font-size:0.85em;color:#888;line-height:32px;border-bottom:1px solid #888;font-family:Georgia;}
+
+/* MEDIA-QUERIES */
+
+@media all and (min-width:1200px){
+li.nav_fluid {display:inline-block;}
+}
 
 /* "Fork me on GitHub" CSS ribbon v0.1.1 */
 
@@ -238,8 +268,8 @@ $(document).ready(function(){
 
     <div id="nav"><ul>
         <li><a href="https://mpds.io/#start">Start</a></li>
-        <li><a href="http://datascience.mpds.io">Manual</a></li>
-        <li><a href="http://developer.mpds.io">API</a></li>
+        <li class="nav_fluid"><a href="http://datascience.mpds.io">Manual</a></li>
+        <li class="nav_fluid"><a href="http://developer.mpds.io">API</a></li>
         <li><a href="https://mpds.io/#products">Products</a></li>
     </ul></div>
 
@@ -248,7 +278,7 @@ $(document).ready(function(){
     <div id="main">
         <div id="landing_box">
             <div id="logo_l">MPDS</div><div id="logo"></div><div id="logo_r">Materials Platform<br />for Data Science</div>
-            <div id="motto">based on the <a href="http://paulingfile.com" target="_blank" rel="noopener noreferrer">PAULING FILE</a> materials database</div>
+            <div id="motto">based on the <a href="http://paulingfile.com" target="_blank" rel="noopener noreferrer">PAULING FILE</a> experimental inorganic database</div>
         </div>
 
         <div class="spacer"></div>
