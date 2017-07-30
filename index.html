@@ -46,13 +46,20 @@ li.nav_fluid{display:none;}
 
 /* COMMON NAVBAR END */
 
-#menu{display:none;position:fixed;left:0;top:210px;width:12.5%;height:auto;z-index:100;border-top:1px solid #ccc;padding-top:20px;}
-#menu li{text-align:left;list-style:none;}
+#menu{display:none;position:fixed;left:0;top:170px;width:12.5%;height:auto;z-index:100;}
+#menu li{text-align:left;list-style:none;letter-spacing:-0.5px;}
 #menu a{display:block;}
-#menu > ul > li a{text-decoration:none;color:#900;border-bottom:1px solid #900;font-size:1.1em;padding-left:5px;line-height:2em;}
-#menu > ul > li a:hover, #menu > ul > li a.active {color:#fff;background:#900;}
-#menu > ul > li > ul > li a{text-decoration:none;color:#3e3f95;border-bottom:1px solid #3e3f95;font-size:0.9em;padding-left:20px;line-height:2em;}
-#menu > ul > li > ul > li a:hover, #menu > ul > li > ul > li a.active {color:#fff;background:#3e3f95;}
+#menu > ul > li > a{text-decoration:none;color:#acc2b3;border-bottom:1px solid #acc2b3;padding:4px 0;font-size:2.1vmin;padding-left:5px;line-height:2.5vmin;}
+#menu > ul > li > a:hover, #menu > ul > li > a.active {color:#fff;background:#acc2b3;}
+#menu > ul > li > ul > li > a{text-decoration:none;color:#3e3f95;border-bottom:1px solid #3e3f95;padding:4px 0;font-size:1.8vmin;padding-left:18px;line-height:2.3vmin;}
+#menu > ul > li > ul > li > a:hover, #menu > ul > li > ul > li > a.active {color:#fff;background:#3e3f95;}
+
+#bookmarks{display:none;position:fixed;right:0;top:171px;width:12.5%;height:auto;z-index:100;}
+#bookmarks li{text-align:left;list-style:none;letter-spacing:-0.5px;}
+#bookmarks a{display:block;}
+#bookmarks > ul > li:first-child {border-top:1px solid #222;}
+#bookmarks > ul > li > a{text-decoration:none;color:#222;border-bottom:1px solid #222;font-size:0.9em;padding:3px 1px;line-height:2.3vmin;}
+#bookmarks > ul > li > a:hover{color:#fff;background:#222;}
 
 @media all and (min-width:1000px){
 #menu{display:block;}
@@ -87,9 +94,11 @@ div.blackbg{background:#666;font-size:0.9em;color:#fff;font-family:'Courier New'
 div.caption{text-align:center;font-size:0.9em;line-height:2em;color:#666;margin:20px 0 30px;font-style:italic;}
 div.caption b{font-style:normal;}
 
-div.mpds_categs{margin:20px 0;}
-#mpds_categs_classes > a{display:inline-block;font-size:0.9em;line-height:1.5em;text-decoration:none;color:#fff;padding:1px 2px;margin-right:3px;margin-bottom:3px;background:#E36868;border:0;border-radius:2px;}
-#mpds_categs_formulae > a{display:inline-block;font-size:0.9em;line-height:1.5em;text-decoration:none;color:#fff;padding:1px 2px;margin-right:3px;margin-bottom:3px;background:#06c;border:0;border-radius:2px;}
+div.mpds_categs{margin:20px 0;text-align:center;}
+div.mpds_categs > a{display:inline-block;font-size:0.9em;line-height:1.5em;text-decoration:none;padding:1px 2px;margin-right:3px;margin-bottom:4px;border:0;border-radius:2px;}
+#mpds_categs_classes > a{background:#E36868;color:#fff;}
+#mpds_categs_formulae > a, #mpds_categs_aetypes > a{background:#acc2b3;color:#fff;}
+#mpds_categs_strber > a{background:#3e3f95;color:#fff;}
 
 /* LOGOS */
 
@@ -106,11 +115,12 @@ div.mpds_categs{margin:20px 0;}
 #footer{width:100%;height:24px;padding-top:8px;text-align:center;font-size:0.85em;color:#888;background:#f6f6f6;border-top:1px solid #888;font-family:Georgia;}
 #footer a{text-decoration:none;color:#888;border-bottom:1px solid #888;font-family:Georgia;}
 #twitter{position:fixed;z-index:3;bottom:0;left:0;width:13.5%;height:32px;text-align:center;}
-#twitter a{text-decoration:none;font-size:0.85em;color:#888;line-height:32px;border-bottom:1px solid #888;font-family:Georgia;}
+#twitter a{text-decoration:none;font-size:0.85em;font-weight:bold;color:#3e3f95;line-height:32px;font-family:Arial;}
 
 /* MEDIA-QUERIES */
 
-@media all and (min-width:1200px){
+@media all and (min-width:1100px){
+#menu, #bookmarks{display:block;}
 li.nav_fluid {display:inline-block;}
 }
 
@@ -219,6 +229,27 @@ function update_menu(){
     });
 }
 
+function symb_tags(string){
+    var sub = false,
+        html_formula = '';
+    for (var i = 0, len = string.length; i < len; i++){
+        if (!isNaN(string[i]) || string[i] == '.'){
+            if (!sub){
+                html_formula += '<sub>';
+                sub = true;
+            }
+        } else {
+            if (sub){
+                html_formula += '</sub>';
+                sub = false;
+            }
+        }
+        html_formula += string[i];
+    }
+    if (sub) html_formula += '</sub>';
+    return html_formula;
+}
+
 $(document).ready(function(){
     if ($('#menu').is(':visible')){
         var menu = '<ul>';
@@ -239,14 +270,49 @@ $(document).ready(function(){
         $(window).scroll(debounce(update_menu, 300));
     }
 
+    if ($('#bookmarks').is(':visible')){
+        var menu = '<ul>';
+        $('div.caption').each(function(){
+            var that = $(this),
+                value = that.html(),
+                href = that.attr('data-id');
+            if (value.substr(-1, 1) == '.') value = value.substr(0, value.length - 1);
+            menu += '<li><a href="#' + href + '">' + value + '</a></li>';
+        });
+        menu += '</ul>';
+        $('#bookmarks').append(menu);
+    }
+
     $.getJSON("https://mpds.io/wmdata.json", function(data){
-        var classes_html = '';
+        var classes_html = '',
+            aetypes_html = '',
+            strber_html = '',
+            strbers = [];
         data.classes.sort();
         $.each(data.classes, function(key, value){
             if (value.indexOf('zeolite ') !== -1) return true;
             classes_html += '<a href="https://mpds.io/#search/'+value+'">'+value+'</a>';
         });
+        data.aetypes.sort(function(a, b){
+            var partsa = a.split('-vertex')[0].split(' '),
+                va = parseInt(partsa[partsa.length - 1]),
+                partsb = b.split('-vertex')[0].split(' '),
+                vb = parseInt(partsb[partsb.length - 1]);
+            return va > vb ? 1 : va < vb ? -1 : (a.length > b.length ? 1 : a.length < b.length ? -1 : 0);
+        });
+        $.each(data.aetypes, function(key, value){
+            aetypes_html += '<a href="https://mpds.io/#inquiry/aetype='+value+'">'+value+'</a>';
+        });
+        for (var i = 0; i < data.protos.length; i++){
+            if (data.protos[i].length < 6) strbers.push(data.protos[i]);
+        }
+        strbers.sort();
+        for (var i = 0; i < strbers.length; i++){
+            strber_html += '<a href="https://mpds.io/#inquiry/protos='+strbers[i]+'">'+symb_tags(strbers[i])+'</a>';
+        }
+        $('#mpds_categs_aetypes').append(aetypes_html);
         $('#mpds_categs_classes').append(classes_html);
+        $('#mpds_categs_strber').append(strber_html);
     });
 
     var formulae_html = '';
@@ -268,6 +334,8 @@ $(document).ready(function(){
 
     <div id="menu"></div>
 
+    <div id="bookmarks"></div>
+
     <div id="main">
         <div id="landing_box">
             <div id="logo_l">MPDS</div><div id="logo"></div><div id="logo_r">Materials Platform<br />for Data Science</div>
@@ -277,58 +345,88 @@ $(document).ready(function(){
         <div class="spacer"></div>
 
         <div id="content">
-            <p style="background:#F2FFF4;">Dear physicists, chemists, and engineers! We are happy to welcome you here. We know that you nowadays have to process very large amounts of information, so we have created MPDS to assist you.</p>
+            <p style="background:#F2FFF4;">Dear physicists, chemists, and engineers! We are happy to welcome you at the MPDS. We know that you nowadays have to process very large amounts of information, so we have created MPDS to assist you.</p>
 
             <p>The MPDS contains materials data, manually extracted by our experts from scientific publications. We don't believe this task can be somehow automatized and since 1993 we process scientific articles in physics, chemistry, materials science <i>etc.</i> literally by hands. The result is now in front of you.</p>
 
             <h2 id="LPF">&sect;1. What is PAULING FILE?</h2>
 
-            <p class="view">The PAULING FILE is the relational database for materials scientists, grouping crystallographic data, phase diagrams, and physical properties of inorganic crystalline substances under the same frame. The focus is put on the experimental observations, and the data are processed from the original publications, covering world scientific literature from 1891 to present date. Each individual crystal structure, phase diagram, or physical property database entry originates from a particular publication.</p>
+            <p class="view">The PAULING FILE is the relational database for materials scientists, grouping crystallographic data, phase diagrams, and physical properties of inorganic crystalline substances under the same frame. Its focus is put on the experimental observations, and the data are processed from the original publications, covering world scientific literature from 1891 to present date. Each individual crystal structure, phase diagram, or physical property database entry originates from a particular publication.</p>
+
+            <p class="view">The PAULING FILE project is now relatively well-known. There are already <a href="https://scholar.google.com/scholar?q=PAULING+FILE">thousands of publications</a> referring it. Its foundations, database design, and some data-centric observations are published <i>e.g.</i> in the works <a href="https://doi.org/10.1016/j.jallcom.2003.08.060">Villars 2004</a>, <a href="http://chemetal-journal.org/full_pdf/chemetal_CMA0007.pdf">Villars 2008</a>, <a href="https://doi.org/10.1143/JJAP.50.11RH02">Xu 2011</a>, <a href="https://doi.org/10.1088/1749-4699/5/1/015004
+">Kong 2012</a>, and <a href="http://chemetal-journal.org/ejournal13/CMA0269.pdf">Villars 2013</a>.</p>
+
+            <p class="view">The MPDS is not the only product based on the PAULING FILE. There are others, such as <a href="http://materials.springer.com">SpringerMaterials</a>, <a href="http://crystdb.nims.go.jp">NIMS AtomWork</a>, <a href="http://www.materialsdesign.com/medea">MedeA</a> <i>etc.</i> More information can be found on the <a href="http://paulingfile.com">PAULING FILE website</a>.</p>
+
 
             <h2 id="Platform">&sect;2. What is MPDS platform?</h2>
 
             <h3 id="MPDS-intro">&sect;2.1. Introduction</h3>
 
-            <p class="view">The MPDS platform is the online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and uniform application programming interface (<strong>API</strong>). Here the browser user interface (<strong>GUI</strong>) is described.</p>
+            <p class="view">The MPDS platform is a new online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the <a href="http://developer.mpds.io">API section</a>. Typical GUI usecase is shown at the screencast below.</p><br />
 
-            <p class="view">Search of data at MPDS platform is possible according to 11 criteria: 7 in physics and chemistry (materials classes, physical properties, chemical elements, chemical formulae, space groups, crystal systems, prototypes) and 4 in bibliography (publication author, years, journal, and DOI). There are two search modes: <i>basic</i> and <i>advanced</i>.</p>
+            <img id="W1" src="/mpds_screencast.gif" alt="Rich MPDS web-interface" width="800" />
+            <div class="caption" data-id="W1"><b>Fig. 1.</b> Typical usage scenario.</div>
 
-            <p>In the <i>basic</i> mode different search terms can be typed in a single input field. The most frequently used criteria are supported in this field: materials classes, physical properties, chemical elements, chemical formulae, and crystal systems. In the <i>advanced</i> mode each of 11 search criteria has its own input field. Let us get acquainted with the meaning and proper usage of each search criterion.</p>
+            <h3 id="Search-modes">&sect;2.2. Search criteria and modes</h3>
 
-            <h3 id="Classes">&sect;2.2. Materials classes</h3>
+            <p class="view">Search of data at the MPDS platform is possible according to 12 criteria: 8 in physics or chemistry (materials classes, physical properties, chemical elements, chemical formulae, space groups, crystal systems, prototypes, and atomic environments) and 4 in bibliography (publication author, years, journal, and DOI). There are two search modes: <i>simple</i> and <i>advanced</i>.</p>
 
-            <p class="view">Various materials classes are collected in this category, ranging from technical terms to physical categories, chemical names, periodic table groups, some isotope names <i>etc.</i> There are also lot of auxiliary terms, <i>e.g.</i> <a href="https://mpds.io/#search/cell-only">cell-only</a>, <a href="https://mpds.io/#search/cell%20and%20atoms">cell and atoms</a>, <a href="https://mpds.io/#search/disordered">disordered</a>, and <a href="https://mpds.io/#search/non-disordered">non-disordered</a>, applicable to crystalline structures only. The term <a href="https://mpds.io/#search/ab%20initio">ab initio</a> refers to data taken from modeling papers. The most frequently occurring terms are collected below alphabetically.</p>
+            <p>In the <i>simple</i> mode different search terms can be typed in a single input field (see Fig.&nbsp;2). The most frequently used 5 criteria are supported in this field: materials classes, physical properties, chemical elements, chemical formulae, and crystal systems.</p>
+
+            <img id="F2" src="/mpds_simple_materials_search.png" alt="Simple materials search over the MPDS database" width="700" />
+            <div class="caption" data-id="F2"><b>Fig. 2.</b> Simple (one input field) mode of search.</div>
+
+            <p>In the <i>advanced</i> mode each of the 12 search criteria has its own input field. This mode is started either by click on the middle search menu button (<strong>&#9776;</strong>) or modifying the search criteria at the right of the results page. Let us get acquainted with the meaning and proper usage of each search criterion.</p>
+
+            <h3 id="Classes">&sect;2.3. Materials classes</h3>
+
+            <p class="view" id="L1">Various materials classes are collected in this category, ranging from technical terms to physical categories, chemical names, element counts, periodic table groups, some isotope names <i>etc.</i> There are lots of auxiliary terms, only applicable to the specific domains, <i>e.g.</i> <a href="https://mpds.io/#search/cell-only">cell-only</a>, <a href="https://mpds.io/#search/disordered">disordered</a>, and <a href="https://mpds.io/#search/non-disordered">non-disordered</a> are valid for the crystalline structures (S-entries). Another example: the term <a href="https://mpds.io/#search/ab%20initio">ab initio</a> refers to data taken from modeling papers. Moreover, the majority of the known mineral names are supported, <i>e.g.</i> <a href="https://mpds.io/#search/perovskite">perovskite</a>, <a href="https://mpds.io/#search/baddeleyite">baddeleyite</a>, <a href="https://mpds.io/#search/stishovite">stishovite</a>, <a href="https://mpds.io/#search/yeelimite">yeelimite</a> <i>etc.</i> Five special classes <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, and <a href="https://mpds.io/#search/quinary">quinary</a> restrict the distinct element count (arity) of the results. The most frequently occurring terms are collected below alphabetically.</p>
 
             <div id="mpds_categs_classes" class="mpds_categs view"></div>
-            <div class="caption view"><b>Listing 1.</b> The most frequently occurring materials classes.</div>
+            <div class="caption view" data-id="L1"><b>Listing 1.</b> The most frequently occurring materials classes.</div>
 
-            <p class="view">Moreover, the majority of the known mineral names are supported, <i>e.g.</i> <a href="https://mpds.io/#search/perovskite">perovskite</a>, <a href="https://mpds.io/#search/baddeleyite">baddeleyite</a>, <a href="https://mpds.io/#search/stishovite">stishovite</a>, <a href="https://mpds.io/#search/yeelimite">yeelimite</a> <i>etc.</i></p>
+            <h3 id="Properties">&sect;2.4. Physical properties</h3>
 
-            <h3 id="Properties">&sect;2.3. Physical properties</h3>
+            <p class="view">All the supported physical properties are given in the <a href="https://mpds.io/#hierarchy">MPDS hierarchy</a>. A search for high-order property assumes all the subordinate properties. In addition, even more general terms like <a href="https://mpds.io/#search/permittivity">permittivity</a> or <a href="https://mpds.io/#search/pressure">pressure</a> are supported (the search yields all the physical properties containing this term).</p>
 
-            <p class="view">The supported physical properties are given by the <a href="https://mpds.io/#hierarchy">MPDS hierarchy</a>. A search for a high-order property assumes all the subordinate properties. In addition, even more general terms like <a href="https://mpds.io/#search/spin">spin</a> or <a href="https://mpds.io/#search/pressure">pressure</a> are supported (the search yields all the physical properties containing this term).</p>
+            <p class="view">A part of the physical properties in the <a href="https://mpds.io/#hierarchy">hierarchy</a> supports numerical searches. For that an exact name of the property should be used together with the less or more signs and numerical value of interest in SI units.</p>
 
-            <h3 id="Elements">&sect;2.4. Chemical elements</h3>
+            <h3 id="Elements">&sect;2.5. Chemical elements</h3>
 
-            <p class="view">Chemical elements can be typed as full names or symbols. Obviously, chemical elements can be combined arbitrary in search, using spaces, commas, or dashes as separators. By default, equal or greater number of elements is implied, <i>e.g.</i> the results for <a href="https://mpds.io/#search/Cd-O-S">Cd-O-S</a> will also contain Tl, H, N, K <i>etc.</i> To restrict the elements count, special <strong>materials classes</strong> <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, or <a href="https://mpds.io/#search/quinary">quinary</a> should be added, <i>e.g.</i> like this: <a href="https://mpds.io/#search/Cd-O-S%20ternary">Cd-O-S ternary</a>.</p>
+            <p class="view">Chemical elements can be typed as full names or symbols. Obviously, chemical elements can be combined arbitrary in search, using spaces, commas, or dashes as separators. By default, equal or greater number of elements is implied, <i>e.g.</i> the results for <a href="https://mpds.io/#search/Cd-O-S">Cd-O-S</a> may also contain Tl, H, N, K <i>etc.</i> To restrict the elements count, special <strong>materials classes</strong> <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, or <a href="https://mpds.io/#search/quinary">quinary</a> should be added, <i>e.g.</i> <a href="https://mpds.io/#search/Cd-O-S%20ternary">Cd-O-S ternary</a>.</p>
 
-            <h3 id="Formulae">&sect;2.5. Chemical formulae</h3>
+            <h3 id="Formulae">&sect;2.6. Chemical formulae</h3>
 
-            <p class="view">In the chemical formulae order of elements does not matter. However the results will contain the chemical formulae with the standard order of elements (according to their electronegativity). For instance, the 1000 most frequently occurring chemical formulae are listed below alphabetically.</p>
+            <p class="view" id="L2">In the chemical formulae order of elements does not matter. However the results will contain the chemical formulae with the standard order of elements (according to their electronegativity). For instance, the 1000 most frequently occurring chemical formulae are listed below alphabetically.</p>
 
             <div id="mpds_categs_formulae" class="mpds_categs view"></div>
-            <div class="caption view"><b>Listing 2.</b> 1000 most frequently occurring chemical formulae.</div>
+            <div class="caption view" data-id="L2"><b>Listing 2.</b> 1000 most frequently occurring chemical formulae.</div>
 
-            <!-- h3 id="Spacegroups">&sect;2.6. Crystal systems and space groups</h3>
-            <p class="view">Paragraph content</p>
-            <h3 id="Prototypes">&sect;2.7. Prototype systems</h3>
-            <p class="view">Paragraph content</p>
-            <h3 id="Prototypes">&sect;2.8. Bibliography</h3>
-            <p class="view">Paragraph content</p -->
+            <h3 id="Spacegroups">&sect;2.7. Crystal systems and space groups</h3>
 
-            <p style="background:#fff;">This draft of user's documentation is constantly updated. Please, check back soon!</p>
+            <p class="view">Crystal systems and space groups are supported. The space groups can be specified as the number or international short symbol. Full list of 7 crystal systems and 230 space groups can be found <i>e.g.</i> in <a href="https://en.wikipedia.org/wiki/List_of_space_groups">Wikipedia</a>. Note, that crystal systems, space groups, and prototype systems (see below) are mutually exclusive, <i>i.e.</i> not possible to combine.</p>
 
-            <p style="background:#F2FFF4;">Thanks for reading! Please do not hesitate to <a href="mailto:feedback@tilde.pro">contact us</a> if you have any feedback or questions.</p>
+            <h3 id="Prototypes">&sect;2.8. Prototype systems</h3>
+
+            <p class="view" id="L3">Prototype systems are supported in two notations: <a href="https://commons.wikimedia.org/wiki/Strukturbericht"><i>Strukturbericht</i></a> and <i>MPDS</i>. The first is an old crystallographic classification system still sometimes used in the scientific literature (see next listing). The second is given by a combination of chemical formula, <a href="https://en.wikipedia.org/wiki/Pearson_symbol">Pearson symbol</a>, and space group number. For instance, the most common prototype in the MPDS database (and, consequently, in the world literature) is <a href="https://mpds.io/#inquiry/protos=NaCl+cF8+225">NaCl <i>cF</i>8 225</a>, counting about 40000 hits. Other important prototypes are <i>e.g.</i> cubic perovskite <a href="https://mpds.io/#inquiry/protos=CaTiO3+cP5+221">CaTiO3 <i>cP</i>5 221</a>, zincblende <a href="https://mpds.io/#inquiry/protos=ZnS+cF8+216">ZnS <i>cF</i>8 216</a>, superconducting cuprate <a href="https://mpds.io/#inquiry/protos=Ba2Cu3YO6.3+tP14+123">Ba2Cu3YO6.3 <i>tP</i>14 123</a> <i>etc.</i>.</p>
+
+            <div id="mpds_categs_strber" class="mpds_categs view"></div>
+            <div class="caption view" data-id="L3"><b>Listing 3.</b> All Strukturbericht symbols.</div>
+
+            <h3 id="Prototypes">&sect;2.9. Atomic environments</h3>
+
+            <p class="view">The atomic environments in the crystalline structures are arranged in the polyhedral shapes. And at the MPDS each data entry (be it a phase at the phase diagram or a set of the measured physical properties) is associated with the respective crystalline structure via the distinct phase concept. Thus, it is also possible to search throughout the entire data by the shape and atomic composition of these polyhedra.</p>
+
+            <p class="view" id="L4">The most frequently occurring atomic environments polyhedra are shown below, sorted by the number of vertices:</p>
+
+            <div id="mpds_categs_aetypes" class="mpds_categs view"></div>
+            <div class="caption view" data-id="L4"><b>Listing 4.</b> MPDS data polyhedral types.</div>
+
+            <h3 id="Prototypes">&sect;2.9. Bibliography</h3>
+            <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, and DOIs. This information can be also used for citing. Generally citing of the MPDS is desirable but not obligatory although, as all the data have their own publishers' DOIs or at least journal issues with pages.</p>
+
+            <p style="background:#F2FFF4;">We thank the reader for the time and interest! Any feedback or questions are <a href="mailto:feedback@tilde.pro">very welcomed and greatly appreciated</a>.</p>
         </div>
     </div>
 
