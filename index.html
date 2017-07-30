@@ -301,7 +301,7 @@ $(document).ready(function(){
             return va > vb ? 1 : va < vb ? -1 : (a.length > b.length ? 1 : a.length < b.length ? -1 : 0);
         });
         $.each(data.aetypes, function(key, value){
-            aetypes_html += '<a href="https://mpds.io/#inquiry/aetype='+value+'">'+value+'</a>';
+            aetypes_html += '<a href="https://mpds.io/#inquiry/aetypes='+value+'">'+value+'</a>';
         });
         for (var i = 0; i < data.protos.length; i++){
             if (data.protos[i].length < 6) strbers.push(data.protos[i]);
@@ -347,7 +347,7 @@ $(document).ready(function(){
         <div id="content">
             <p style="background:#F2FFF4;">Dear physicists, chemists, and engineers! We are happy to welcome you at the MPDS. We know that you nowadays have to process very large amounts of information, so we have created MPDS to assist you.</p>
 
-            <p>The MPDS contains materials data, manually extracted by our experts from scientific publications. We don't believe this task can be somehow automatized and since 1993 we process scientific articles in physics, chemistry, materials science <i>etc.</i> literally by hands. The result is now in front of you.</p>
+            <p>The MPDS contains materials data, manually extracted by our experts from scientific publications. Even nowadays this task cannot be considerably automatized, so we process scientific articles in physics, chemistry, materials science <i>etc.</i> since 1993 mainly by hands. The result is now in front of you.</p>
 
             <h2 id="LPF">&sect;1. What is PAULING FILE?</h2>
 
@@ -363,10 +363,10 @@ $(document).ready(function(){
 
             <h3 id="MPDS-intro">&sect;2.1. Introduction</h3>
 
-            <p class="view">The MPDS platform is a new online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the <a href="http://developer.mpds.io">API section</a>. Typical GUI usecase is shown at the screencast below.</p><br />
+            <p class="view">The MPDS platform is a new online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the <a href="http://developer.mpds.io">API section</a>. A possible GUI usecase is shown at the screencast below.</p><br />
 
             <img id="W1" src="/mpds_screencast.gif" alt="Rich MPDS web-interface" width="800" />
-            <div class="caption" data-id="W1"><b>Fig. 1.</b> Typical usage scenario.</div>
+            <div class="caption" data-id="W1"><b>Fig. 1.</b> One of the possible usage scenarios.</div>
 
             <h3 id="Search-modes">&sect;2.2. Search criteria and modes</h3>
 
@@ -405,7 +405,7 @@ $(document).ready(function(){
 
             <h3 id="Spacegroups">&sect;2.7. Crystal systems and space groups</h3>
 
-            <p class="view">Crystal systems and space groups are supported. The space groups can be specified as the number or international short symbol. Full list of 7 crystal systems and 230 space groups can be found <i>e.g.</i> in <a href="https://en.wikipedia.org/wiki/List_of_space_groups">Wikipedia</a>. Note, that crystal systems, space groups, and prototype systems (see below) are mutually exclusive, <i>i.e.</i> not possible to combine.</p>
+            <p class="view">Crystal systems and space groups are fully supported. The space groups can be specified as the number or international short symbol. Full list of 7 crystal systems and 230 space groups can be found <i>e.g.</i> in <a href="https://en.wikipedia.org/wiki/List_of_space_groups">Wikipedia</a>. Note, that crystal systems, space groups, and prototype systems (see below) are mutually exclusive, <i>i.e.</i> not possible to combine.</p>
 
             <h3 id="Prototypes">&sect;2.8. Prototype systems</h3>
 
@@ -416,9 +416,7 @@ $(document).ready(function(){
 
             <h3 id="Prototypes">&sect;2.9. Atomic environments</h3>
 
-            <p class="view">The atomic environments in the crystalline structures are arranged in the polyhedral shapes. And at the MPDS each data entry (be it a phase at the phase diagram or a set of the measured physical properties) is associated with the respective crystalline structure via the distinct phase concept. Thus, it is also possible to search throughout the entire data by the shape and atomic composition of these polyhedra.</p>
-
-            <p class="view" id="L4">The most frequently occurring atomic environments polyhedra are shown below, sorted by the number of vertices:</p>
+            <p class="view" id="L4">The atomic environments in the crystalline structures are arranged in the polyhedral shapes. And at the MPDS each data entry (be it a phase at the phase diagram or a set of the measured physical properties) is associated with the respective crystalline structure via the distinct phase concept. Thus, it is also possible to search throughout the entire data by the shape and atomic composition of these polyhedra. The most frequently occurring atomic environments polyhedra are shown below, sorted by the number of vertices:</p>
 
             <div id="mpds_categs_aetypes" class="mpds_categs view"></div>
             <div class="caption view" data-id="L4"><b>Listing 4.</b> MPDS data polyhedral types.</div>
