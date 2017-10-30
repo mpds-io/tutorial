@@ -350,76 +350,88 @@ $(document).ready(function(){
         <div class="spacer"></div>
 
         <div id="content">
-            <p style="background:#F2FFF4;">Dear physicists, chemists, and engineers! We are happy to welcome you at MPDS. The MPDS provides materials data, manually extracted by our experts from the scientific publications. Even nowadays this task cannot be automated, so we process scientific articles in physics, chemistry, materials science <i>etc.</i> literally by hands since 1993. The result is now in front of you.</p>
+            <p style="background:#F2FFF4;">Dear physicists, chemists, and engineers! We are happy to welcome you at MPDS. The MPDS provides materials data, manually extracted by our experts from the scientific publications. Even nowadays this task cannot be automated, so we process scientific articles in physics, chemistry, materials science <i>etc.</i> literally by hands since 1993. All these data are now available online.</p>
 
-            <p style="background:#F2FFF4;">Full access to all the data in all the supported formats (CIF, PDF, PNG, BIBTEX <i>etc.</i>) is provided by the <a href="https://mpds.io/#products">subscription</a>. Free access is also possible although limited. In addition, some parts of the data are open-access. In particular, these are: (<i>a</i>) cell parameters - temperature diagrams and cell parameters - pressure diagrams, (<i>b</i>) all data for compounds containing <a href="https://mpds.io/#search/K-Ag">both Ag and K</a>, (<i>c</i>) all data for <a href="https://mpds.io/#search/binary%20compounds%20of%20oxygen">binary compounds of oxygen</a>.</p>
+            <h2 id="Screencasts">&sect;1. Introductory examples</h2>
 
-            <h2 id="LPF">&sect;1. What is PAULING FILE?</h2>
+            <img id="F1" src="/matrix-vis-screencast.gif" alt="Rich MPDS web-interface: plotting the results of the search as a matrix" width="800" />
+            <div class="caption" data-id="F1"><b>Fig. 1.</b> MPDS platform: plotting the results of the search as a matrix.</div>
+
+            <p class="view">&nbsp;</p>
+
+            <img id="F2" src="/graph-vis-screencast.gif" alt="Rich MPDS web-interface: using the graph to refine the search" width="800" />
+            <div class="caption" data-id="F2"><b>Fig. 2.</b> MPDS platform: using the graph to refine the search.</div>
+
+            <p class="view">&nbsp;</p>
+
+            <img id="F3" src="/biblio-screencast.gif" alt="Rich MPDS web-interface: complex search and redirection to the source article" width="800" />
+            <div class="caption" data-id="F3"><b>Fig. 3.</b> MPDS platform: complex search and redirection to the source article.</div>
+
+            <h2 id="LPF">&sect;2. PAULING FILE</h2>
 
             <p class="view">The PAULING FILE is the relational database for materials scientists, grouping crystallographic data, phase diagrams, and physical properties of inorganic crystalline substances under the same frame. Its focus is put on the experimental observations, and the data are processed from the original publications, covering world scientific literature from 1891 to present date. Each individual crystal structure, phase diagram, or physical property database entry originates from a particular publication.</p>
 
-            <p class="view">The PAULING FILE project is now relatively well-known. There are already <a href="https://scholar.google.com/scholar?q=PAULING+FILE">thousands of publications</a> referring it. Its foundations, database design, and some data-centric observations are published <i>e.g.</i> in the works <a href="https://doi.org/10.1016/j.jallcom.2003.08.060">Villars 2004</a>, <a href="http://chemetal-journal.org/full_pdf/chemetal_CMA0007.pdf">Villars 2008</a>, <a href="https://doi.org/10.1143/JJAP.50.11RH02">Xu 2011</a>, <a href="https://doi.org/10.1088/1749-4699/5/1/015004
+            <p class="view">Now the PAULING FILE project is relatively well-known. There are already <a href="https://scholar.google.com/scholar?q=PAULING+FILE">thousands of publications</a> referring it. Its foundations, database design, and some data-centric observations are published <i>e.g.</i> in the works <a href="https://doi.org/10.1016/j.jallcom.2003.08.060">Villars 2004</a>, <a href="http://chemetal-journal.org/full_pdf/chemetal_CMA0007.pdf">Villars 2008</a>, <a href="https://doi.org/10.1143/JJAP.50.11RH02">Xu 2011</a>, <a href="https://doi.org/10.1088/1749-4699/5/1/015004
 ">Kong 2012</a>, and <a href="http://chemetal-journal.org/ejournal13/CMA0269.pdf">Villars 2013</a>.</p>
 
-            <p class="view">The MPDS is not the only product based on the PAULING FILE. There are others, such as <a href="http://materials.springer.com">SpringerMaterials</a>, <a href="http://crystdb.nims.go.jp">NIMS AtomWork</a>, <a href="http://www.materialsdesign.com/medea">MedeA</a> <i>etc.</i> More information can be found on the <a href="http://paulingfile.com">PAULING FILE website</a>.</p>
+            <p class="view">The MPDS is not the only product based on the PAULING FILE. There are others, such as <a href="http://materials.springer.com">SpringerMaterials</a>, <a href="http://crystdb.nims.go.jp">NIMS AtomWork</a>, <a href="http://www.materialsdesign.com/medea">MedeA</a> <i>etc.</i> More information can be found at the <a href="http://paulingfile.com">PAULING FILE website</a>.</p>
 
 
-            <h2 id="Platform">&sect;2. What is MPDS platform?</h2>
+            <h2 id="Platform">&sect;3. MPDS platform</h2>
 
-            <h3 id="MPDS-intro">&sect;2.1. Introduction</h3>
+            <h3 id="MPDS-intro">&sect;3.1. Overview</h3>
 
-            <p class="view">The MPDS platform is a new online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the <a href="http://developer.mpds.io">API section</a>. A possible GUI usecase is shown at the screencast below.</p><br />
+            <p class="view">The MPDS platform is an online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the <a href="http://developer.mpds.io">API section</a>.</p>
 
-            <img id="W1" src="/mpds_screencast.gif" alt="Rich MPDS web-interface" width="800" />
-            <div class="caption" data-id="W1"><b>Fig. 1.</b> One of the possible usage scenarios.</div>
+            <p class="view">Full access to all the data in all the supported formats (CIF, PDF, PNG, BIBTEX <i>etc.</i>) is provided by the <a href="https://mpds.io/#products">subscription</a>. Free access is also possible although limited. In addition, some parts of the data are open-access. In particular, these are: (<i>a</i>) cell parameters - temperature diagrams and cell parameters - pressure diagrams, (<i>b</i>) all data for compounds containing <a href="https://mpds.io/#search/K-Ag">both Ag and K</a>, (<i>c</i>) all data for <a href="https://mpds.io/#search/binary%20compounds%20of%20oxygen">binary compounds of oxygen</a>.</p>
 
-            <h3 id="Search-modes">&sect;2.2. Search criteria and modes</h3>
+            <h3 id="Search-modes">&sect;3.2. Search criteria and modes</h3>
 
             <p class="view">Search of data at the MPDS platform is possible according to 12 criteria: 8 in physics or chemistry (materials classes, physical properties, chemical elements, chemical formulae, space groups, crystal systems, prototypes, and atomic environments) and 4 in bibliography (publication author, years, journal, and DOI). There are two search modes: <i>simple</i> and <i>advanced</i>.</p>
 
-            <p>In the <i>simple</i> mode different search terms can be typed in a single input field (see Fig.&nbsp;2). The most frequently used 5 criteria are supported in this field: materials classes, physical properties, chemical elements, chemical formulae, and crystal systems.</p>
+            <p>In the <i>simple</i> mode different search terms can be typed all in a single input field (see Fig.&nbsp;4). Here the most frequently used 5 criteria are supported: materials classes, physical properties, chemical elements, chemical formulae, and crystal systems. All they will be correctly recognized and attributed to your search keywords.</p>
 
-            <img id="F2" src="/mpds_simple_materials_search.png" alt="Simple materials search over the MPDS database" width="700" />
-            <div class="caption" data-id="F2"><b>Fig. 2.</b> Simple (one input field) mode of search.</div>
+            <img id="F4" src="/mpds_simple_materials_search.png" alt="Simple materials search over the MPDS database" width="700" />
+            <div class="caption" data-id="F4"><b>Fig. 4.</b> Simple (one input field) mode of search.</div>
 
-            <p>In the <i>advanced</i> mode each of the 12 search criteria has its own input field. This mode is started either by click on the middle search menu button (<strong>&#9776;</strong>) or modifying the search criteria at the right of the results page. Let us get acquainted with the meaning and proper usage of each search criterion.</p>
+            <p>In the <i>advanced</i> mode each of the 12 search criteria has its own input field. To use it, either click the middle search menu button (<strong>&#9776;</strong>), or click the criteria boxes shown at the right of the results pages. Let us get acquainted with the meaning and proper usage of each criterion of search.</p>
 
-            <h3 id="Classes">&sect;2.3. Materials classes</h3>
+            <h3 id="Classes">&sect;3.3. Materials classes</h3>
 
-            <p class="view" id="L1">Various materials classes are collected in this category, ranging from technical terms to physical categories, chemical names, element counts, periodic table groups, some isotope names <i>etc.</i> There are lots of auxiliary terms, only applicable to the specific domains, <i>e.g.</i> <a href="https://mpds.io/#search/cell-only">cell-only</a>, <a href="https://mpds.io/#search/disordered">disordered</a>, and <a href="https://mpds.io/#search/non-disordered">non-disordered</a> are valid for the crystalline structures (S-entries). Another example: the term <a href="https://mpds.io/#search/ab%20initio">ab initio</a> refers to data taken from modeling papers. Moreover, the majority of the known mineral names are supported, <i>e.g.</i> <a href="https://mpds.io/#search/perovskite">perovskite</a>, <a href="https://mpds.io/#search/baddeleyite">baddeleyite</a>, <a href="https://mpds.io/#search/stishovite">stishovite</a>, <a href="https://mpds.io/#search/yeelimite">yeelimite</a> <i>etc.</i> Five special classes <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, and <a href="https://mpds.io/#search/quinary">quinary</a> restrict the distinct element count (arity) of the results. The most frequently occurring terms are collected below alphabetically.</p>
+            <p class="view" id="L1">In this category various materials classes are collected, ranging from technical terms to physical categories, chemical names, element counts, periodic table groups, some isotope names <i>etc.</i> There are lots of auxiliary terms, only applicable to the specific domains, <i>e.g.</i> <a href="https://mpds.io/#search/cell-only">cell-only</a>, <a href="https://mpds.io/#search/disordered">disordered</a>, and <a href="https://mpds.io/#search/non-disordered">non-disordered</a> are valid for the crystalline structures (S-entries). Another example: the term <a href="https://mpds.io/#search/ab%20initio">ab initio</a> refers to data taken from the theoretical first-principles modeling papers. Moreover, the majority of the known mineral names are supported, <i>e.g.</i> <a href="https://mpds.io/#search/perovskite">perovskite</a>, <a href="https://mpds.io/#search/baddeleyite">baddeleyite</a>, <a href="https://mpds.io/#search/stishovite">stishovite</a>, <a href="https://mpds.io/#search/yeelimite">yeelimite</a> <i>etc.</i> Five special classes <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, and <a href="https://mpds.io/#search/quinary">quinary</a> restrict the distinct element count (arity) of the results. The most frequently occurring terms are collected below alphabetically.</p>
 
             <div id="mpds_categs_classes" class="mpds_categs view"></div>
             <div class="caption view" data-id="L1"><b>Listing 1.</b> The most frequently occurring materials classes.</div>
 
-            <h3 id="Properties">&sect;2.4. Physical properties</h3>
+            <h3 id="Properties">&sect;3.4. Physical properties</h3>
 
             <p class="view">All the supported physical properties are given by the <a href="https://mpds.io/#hierarchy">MPDS hierarchy</a>. A search for high-order property assumes all the subordinate properties included in the results. In addition, even more general terms like <a href="https://mpds.io/#search/permittivity">permittivity</a> or <a href="https://mpds.io/#search/pressure">pressure</a> are supported. The physical properties containing these terms in the name will be found.</p>
 
             <p class="view">A part of the physical properties in the <a href="https://mpds.io/#hierarchy">hierarchy</a> supports numerical searches. For that an exact name of the property should be used together with the less or more sign and the numerical value of interest (in SI units).</p>
 
-            <h3 id="Elements">&sect;2.5. Chemical elements</h3>
+            <h3 id="Elements">&sect;3.5. Chemical elements</h3>
 
             <p class="view">Chemical elements can be typed as names or symbols. Obviously, chemical elements can be combined arbitrarily in search, using spaces, commas, or dashes as separators. By default, equal or greater count of elements is implied, <i>e.g.</i> the results for <a href="https://mpds.io/#search/Cd-O-S">Cd-O-S</a> may also contain Tl, H, N, K <i>etc.</i> To restrict the elements count, special <strong>materials classes</strong> <a href="https://mpds.io/#search/unary">unary</a>, <a href="https://mpds.io/#search/binary">binary</a>, <a href="https://mpds.io/#search/ternary">ternary</a>, <a href="https://mpds.io/#search/quaternary">quaternary</a>, or <a href="https://mpds.io/#search/quinary">quinary</a> should be added, <i>e.g.</i> <a href="https://mpds.io/#search/Cd-O-S%20ternary">Cd-O-S ternary</a>.</p>
 
-            <h3 id="Formulae">&sect;2.6. Chemical formulae</h3>
+            <h3 id="Formulae">&sect;3.6. Chemical formulae</h3>
 
             <p class="view" id="L2">In the chemical formulae order of elements does not matter. However the results will contain the chemical formulae with the standard order of elements (according to their electronegativity). For instance, the 1000 most frequently occurring chemical formulae are listed below alphabetically.</p>
 
             <div id="mpds_categs_formulae" class="mpds_categs view"></div>
             <div class="caption view" data-id="L2"><b>Listing 2.</b> 1000 most frequently occurring chemical formulae.</div>
 
-            <h3 id="Spacegroups">&sect;2.7. Crystal systems and space groups</h3>
+            <h3 id="Spacegroups">&sect;3.7. Crystal systems and space groups</h3>
 
             <p class="view">Seven crystal systems and 230 space groups are fully supported. The space groups can be specified as the number or international short symbol. Full list of crystal systems and space groups can be found <i>e.g.</i> in <a href="https://en.wikipedia.org/wiki/List_of_space_groups">Wikipedia</a>. Note, that crystal systems, space groups, and prototype systems (see below) are mutually exclusive, <i>i.e.</i> not possible to combine.</p>
 
-            <h3 id="Prototypes">&sect;2.8. Prototype systems</h3>
+            <h3 id="Prototypes">&sect;3.8. Prototype systems</h3>
 
             <p class="view" id="L3">Prototype systems are supported in two notations: <a href="https://commons.wikimedia.org/wiki/Strukturbericht"><i>Strukturbericht</i></a> and <i>MPDS</i>. The first notation is an old crystallographic classification system still sometimes used in the scientific literature (see the next listing). The second notation is given by a combination of chemical formula, <a href="https://en.wikipedia.org/wiki/Pearson_symbol">Pearson symbol</a>, and space group number. For instance, the most common prototype in the MPDS database (and, consequently, in the world literature) is <a href="https://mpds.io/#inquiry/protos=NaCl+cF8+225">NaCl <i>cF</i>8 225</a>, counting about 40&nbsp;000 hits. Other important prototypes are <i>e.g.</i> cubic perovskite <a href="https://mpds.io/#inquiry/protos=CaTiO3+cP5+221">CaTiO3 <i>cP</i>5 221</a>, zincblende <a href="https://mpds.io/#inquiry/protos=ZnS+cF8+216">ZnS <i>cF</i>8 216</a>, superconducting cuprate <a href="https://mpds.io/#inquiry/protos=Ba2Cu3YO6.3+tP14+123">Ba2Cu3YO6.3 <i>tP</i>14 123</a> <i>etc.</i>.</p>
 
             <div id="mpds_categs_strber" class="mpds_categs view"></div>
             <div class="caption view" data-id="L3"><b>Listing 3.</b> All Strukturbericht symbols.</div>
 
-            <h3 id="Prototypes">&sect;2.9. Atomic environments</h3>
+            <h3 id="Prototypes">&sect;3.9. Atomic environments</h3>
 
             <p class="view" id="L4">The atomic environments in the crystalline structures are arranged in the polyhedra (<i>e.g.</i> TiO<sub>6</sub> or HgX<sub>12</sub>). It is possible to search throughout the entire MPDS data by the type and the atomic composition of these polyhedra. The most frequently occurring polyhedral types are shown below, sorted by the number of vertices (<i>i.e.</i> central atom <a href="https://en.wikipedia.org/wiki/Coordination_number">coordination number</a>):</p>
 
@@ -428,10 +440,10 @@ $(document).ready(function(){
 
             <p>The input of polyhedron atoms implies the first typed chemical symbol to be always a center of the polyhedron. It makes no sense to specify any numerical index near it. The next typed chemical symbols are treated as ligands. Here numerical indices are properly supported. In addition, it is possible to subdivide center and ligands by the minus sign. Here <i>X</i> (as a center or a ligand) stands for any chemical element.</p>
 
-            <h3 id="Prototypes">&sect;2.9. Bibliography</h3>
+            <h3 id="Prototypes">&sect;3.10. Bibliography</h3>
             <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, and DOIs. This information can be also used for citing. Generally citing of the MPDS is desirable but not obligatory although, as all the data have their own publishers' DOIs or at least journal issues with pages.</p>
 
-            <p style="background:#F2FFF4;">We thank the reader for the time and interest! Any feedback or questions are <a href="mailto:feedback@tilde.pro">very welcomed and greatly appreciated</a>.</p>
+            <p style="background:#F2FFF4;">This tutorial is work in progress. We thank the reader for the time and interest! Any feedback or questions are <a href="mailto:feedback@tilde.pro">very welcomed and greatly appreciated</a>.</p>
         </div>
     </div>
 
