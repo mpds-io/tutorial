@@ -423,24 +423,26 @@ $(document).ready(function(){
 
             <h3 id="Prototypes">&sect;3.8. Prototype systems</h3>
 
-            <p class="view" id="L3">Prototype systems are supported in two notations: <a href="https://commons.wikimedia.org/wiki/Strukturbericht"><i>Strukturbericht</i></a> and <i>PAULING FILE</i>. The first notation is an old crystallographic classification system still sometimes used in the scientific literature (see the listing below). The second notation is given by a combination of the chemical formula, <a href="https://en.wikipedia.org/wiki/Pearson_symbol">Pearson symbol</a>, and space group number. For instance, the most common prototype in the world literature is <a href="https://mpds.io/#inquiry/protos=NaCl+cF8+225">NaCl <i>cF</i>8 225</a>, counting about 40&nbsp;000 hits. Other important structural prototypes are <i>e.g.</i> cubic perovskite <a href="https://mpds.io/#inquiry/protos=CaTiO3+cP5+221">CaTiO3 <i>cP</i>5 221</a>, zincblende <a href="https://mpds.io/#inquiry/protos=ZnS+cF8+216">ZnS <i>cF</i>8 216</a>, superconducting cuprate <a href="https://mpds.io/#inquiry/protos=Ba2Cu3YO6.3+tP14+123">Ba2Cu3YO6.3 <i>tP</i>14 123</a> <i>etc.</i>.</p>
+            <p class="view" id="L3">Prototype systems are supported in two notations: <a href="https://commons.wikimedia.org/wiki/Strukturbericht"><i>Strukturbericht</i></a> and <i>combined</i>. The first notation is an old crystallographic classification system still sometimes used in the scientific literature (see the listing below). The second notation is given by a combination of the chemical formula, the <a href="https://en.wikipedia.org/wiki/Pearson_symbol">Pearson symbol</a>, and the space group number. For instance, the most common prototype in the world literature is <a href="https://mpds.io/#inquiry/protos=NaCl+cF8+225">NaCl <i>cF</i>8 225</a>, counting about 40&nbsp;000 hits. Other important structural prototypes are <i>e.g.</i> cubic perovskite <a href="https://mpds.io/#inquiry/protos=CaTiO3+cP5+221">CaTiO3 <i>cP</i>5 221</a>, zincblende <a href="https://mpds.io/#inquiry/protos=ZnS+cF8+216">ZnS <i>cF</i>8 216</a>, superconducting cuprate <a href="https://mpds.io/#inquiry/protos=Ba2Cu3YO6.3+tP14+123">Ba2Cu3YO6.3 <i>tP</i>14 123</a> <i>etc.</i></p>
+
+            <p class="view">There are nearly 14000 unique distinct prototypes, including about 250 Strukturbericht symbols (see below). Being although very old notation, Strukturbericht is still popular in the literature.</p>
 
             <div id="mpds_categs_strber" class="mpds_categs view"></div>
             <div class="caption view" data-id="L3"><b>Listing 3.</b> All Strukturbericht symbols.</div>
 
-            <h3 id="Prototypes">&sect;3.9. Atomic environments</h3>
+            <h3 id="AETS">&sect;3.9. Atomic environments</h3>
 
-            <p class="view" id="L4">The atomic environments in the crystalline structures are arranged in the polyhedra (<i>e.g.</i> TiO<sub>6</sub> or HgX<sub>12</sub>). It is possible to search throughout the entire MPDS data by the type and the atomic composition of these polyhedra. The most frequently occurring polyhedral types are shown below, sorted by the number of vertices (<i>i.e.</i> the central atom <a href="https://en.wikipedia.org/wiki/Coordination_number">coordination number</a>):</p>
+            <p class="view" id="L4">The atomic environments in the crystalline structures are arranged in the polyhedra (<i>e.g.</i> TiO<sub>6</sub> or HgX<sub>12</sub>). It is possible to search throughout the entire MPDS data by the type and the atomic composition of these polyhedra. The most frequently occurring polyhedral types are shown below, sorted by the number of vertices (<i>i.e.</i> the central atom <a href="https://en.wikipedia.org/wiki/Coordination_number">coordination number</a> or CN):</p>
 
             <div id="mpds_categs_aetypes" class="mpds_categs view"></div>
             <div class="caption view" data-id="L4"><b>Listing 4.</b> MPDS data polyhedral types.</div>
 
-            <p>The input of polyhedron atoms implies the first typed chemical symbol is the center of the polyhedron. It makes no sense to specify any numerical index near it. The next typed chemical symbols are treated as ligands. Here numerical indices are properly supported. The center and ligands atoms may be subdivided by the space or minus sign. The <i>X</i> symbol stands for any chemical element.</p>
+            <p>In this category, the first provided chemical symbol is the center of the polyhedron. It makes no sense to specify any numerical index nearby. The next provided chemical symbol is treated as a corner. Here the numerical index is properly supported. The center and the corner atoms can be provided together or subdivided using the space or minus sign. The X symbol stands for any chemical element. Consider the following examples: (<i>a</i>) <a href="https://mpds.io/#inquiry/aeatoms=U">U-center, any CN, any corners</a>, (<i>b</i>) <a href="https://mpds.io/#inquiry/aeatoms=X-Se">any center, any CN, Se-corners</a>, (<i>c</i>) <a href="https://mpds.io/#inquiry/aeatoms=UO6">U-center, CN = 6, O-corners</a>, and (<i>d</i>) <a href="https://mpds.io/#inquiry/aeatoms=UX7">U-center, CN = 7, any corners</a>.</p>
 
-            <h3 id="Prototypes">&sect;3.10. Bibliography</h3>
-            <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, and DOIs. This information can be also used for citing. Generally citing of the MPDS is desirable but not obligatory although, as all the data have their own publishers' DOIs or at least journal issues with pages.</p>
+            <h3 id="Bibliography">&sect;3.10. Bibliography</h3>
+            <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, and DOIs. This information can be also used for citing. Generally citing of the MPDS is desirable, but not obligatory, as all the data have already their own publishers' citing information (DOIs <i>etc.</i>)</p>
 
-            <p style="background:#f4fbff;">This tutorial is work in progress. We thank the reader for the time and interest! Any questions or feedback is <a href="mailto:feedback@tilde.pro">very welcomed and greatly appreciated</a>.</p>
+            <p style="background:#f4fbff;">This tutorial is a work in progress. We thank the reader for the time and interest! Any questions or feedback is <a href="mailto:feedback@tilde.pro">very welcomed and greatly appreciated</a>.</p>
         </div>
     </div>
 
