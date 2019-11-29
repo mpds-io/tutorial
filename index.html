@@ -190,6 +190,18 @@ if (!window.console) window.console = {log: function(){}, error: function(){}};
 
 window.formulae_ex = ["Ag&#x2082;S", "Ag&#x2082;Te", "AgI", "Al&#x2082;O&#x2083;", "Al[PO&#x2084;]", "AlAs", "AlF&#x2083;", "AlN", "Ba&#x2082;Cu&#x2083;ErO&#x2087;", "Ba&#x2082;Cu&#x2083;GdO&#x2087;", "Ba&#x2082;Cu&#x2083;PrO&#x2087;", "Ba&#x2082;Cu&#x2083;YO&#x2086;", "Ba&#x2082;Cu&#x2083;YO&#x2087;", "Ba&#x2082;Cu&#x2084;YO&#x2088;", "BaFe&#x2081;&#x2082;O&#x2081;&#x2089;", "BaFe&#x2082;As&#x2082;", "BaTiO&#x2083;", "Bi&#x2082;Se&#x2083;", "Bi&#x2082;Te&#x2083;", "C&#x2086;&#x2080;", "Ca&#x2080;.&#x2085;La&#x2080;.&#x2085;MnO&#x2083;", "Ca&#x2080;.&#x2085;Pr&#x2080;.&#x2085;MnO&#x2083;", "CaF&#x2082;", "CaO", "CdI&#x2082;", "CdS", "CdSe", "CdTe", "CeO&#x2082;", "CeRu&#x2082;Si&#x2082;", "CoO", "CoSb&#x2083;", "Cu&#x2082;CeSi&#x2082;", "Cu&#x2082;O", "Cu&#x2086;Ce", "CuAl&#x2082;", "CuCe&#x2080;.&#x2082;Nd&#x2081;.&#x2088;O&#x2084;", "CuCl", "CuI", "CuLa&#x2082;O&#x2084;", "CuO", "Fe&#x2080;.&#x2085;Ni&#x2080;.&#x2085;", "Fe&#x2082;CoO&#x2084;", "Fe&#x2082;NiO&#x2084;", "Fe&#x2082;O&#x2083;", "Fe&#x2082;P", "Fe&#x2083;C", "Fe&#x2083;O&#x2084;", "FeAl", "FeBiO&#x2083;", "FeS", "FeS&#x2082;", "FeSe", "FeSi", "FeTe&#x2080;.&#x2085;Se&#x2080;.&#x2085;", "GaAs", "GaN", "GaP", "GaSb", "GaSe", "GeO&#x2082;", "GeTe", "H&#x2082;K[PO&#x2084;]", "HfO&#x2082;", "HgTe", "In&#x2082;Se&#x2083;", "InAs", "InP", "InSb", "K&#x2080;.&#x2085;Ba&#x2080;.&#x2085;Fe&#x2082;As&#x2082;", "KCl", "La&#x2082;O&#x2083;", "LaCoO&#x2083;", "LaMnO&#x2083;", "Mg&#x2080;.&#x2082;&#x2081;Ti&#x2080;.&#x2083;&#x2086;Nb&#x2080;.&#x2084;&#x2083;PbO&#x2083;", "MgAl&#x2082;O&#x2084;", "MgB&#x2082;", "MgO", "MnNi&#x2082;Ga", "MnO", "MnSi", "Na&#x2080;.&#x2087;&#x2085;CoO&#x2082;", "NaCl", "NaF", "Nb&#x2083;Sn", "NbSe&#x2082;", "Nd&#x2082;Fe&#x2081;&#x2084;B", "Ni&#x2083;Al", "NiAl", "NiO", "PbS", "PbSe", "PbTe", "Sb&#x2082;Te&#x2083;", "SiC", "SiO&#x2082;", "SnSe", "SnTe", "Sr&#x2080;.&#x2081;CuLa&#x2081;.&#x2089;O&#x2084;", "Sr&#x2080;.&#x2084;La&#x2080;.&#x2086;MnO&#x2083;", "Sr&#x2080;.&#x2085;La&#x2080;.&#x2085;CoO&#x2083;", "Sr&#x2080;.&#x2086;CuLa&#x2081;.&#x2084;O&#x2084;", "Sr&#x2081;.&#x2086;Ca&#x2081;.&#x2083;Cu&#x2082;Bi&#x2082;.&#x2082;O&#x2088;", "Sr&#x2082;Ca&#x2081;.&#x2087;Cu&#x2083;Pb&#x2080;.&#x2083;Bi&#x2082;O&#x2081;&#x2080;", "Sr&#x2082;CaCu&#x2082;Bi&#x2082;O&#x2088;", "Sr&#x2082;LaMn&#x2082;O&#x2087;", "Sr&#x2082;MoFeO&#x2086;", "SrFe&#x2082;As&#x2082;", "SrRuO&#x2083;", "SrTiO&#x2083;", "TaS&#x2082;", "TaSe&#x2082;", "Ti&#x2083;Al", "TiAl", "TiAl&#x2083;", "TiC&#x2080;.&#x2089;&#x2085;", "TiCr&#x2082;", "TiNi", "TiO&#x2082;", "TiPbO&#x2083;", "UO&#x2082;", "UPt&#x2083;", "URu&#x2082;Si&#x2082;", "V&#x2082;O&#x2083;", "V&#x2083;Si"];
 
+String.prototype.matchAll = function(regexp){
+    var matches = [];
+    this.replace(regexp, function(){
+        var arr = ([]).slice.call(arguments, 0),
+            extras = arr.splice(-2);
+        arr.index = extras[0];
+        arr.input = extras[1];
+        matches.push(arr);
+    });
+    return matches.length ? matches : null;
+}
+
 function debounce(func, wait, immediate){
     var timeout;
     return function(){
@@ -250,6 +262,19 @@ function symb_tags(string){
     return html_formula;
 }
 
+function termify_formulae(input, charred){
+    if (input.indexOf('&#') > -1) charred = true;
+    var re = charred ? /&#x208(\d);/g : /%u208(\d)/g;
+    input = charred ? input : escape(input);
+    var matches = input.matchAll(re);
+    if (matches){
+        for (var i=0; i<matches.length; i++){
+            input = input.replace(matches[i][0], matches[i][1]);
+        }
+    }
+    return unescape(input).replace(/^\(|\)$/g, ""); //.replaceAll("\\[", "").replaceAll("\\]", "");
+}
+
 $(document).ready(function(){
     if ($('#menu').is(':visible')){
         var menu = '<ul>';
@@ -292,7 +317,7 @@ $(document).ready(function(){
         data.classes.sort();
         $.each(data.classes, function(key, value){
             if (Math.floor(Math.random() * 4) != 3 || value.indexOf('zeolite ') !== -1) return true;
-            classes_html += '<a href="https://mpds.io/#search/'+value+'">'+value+'</a>';
+            classes_html += '<a href="https://mpds.io/#search/' + value + '">' + value + '</a>';
         });
 
         data.aetypes.sort(function(a, b){
@@ -303,7 +328,7 @@ $(document).ready(function(){
             return va > vb ? 1 : va < vb ? -1 : (a.length > b.length ? 1 : a.length < b.length ? -1 : 0);
         });
         $.each(data.aetypes, function(key, value){
-            aetypes_html += '<a href="https://mpds.io/#inquiry/aetypes='+value+'">'+value+'</a>';
+            aetypes_html += '<a href="https://mpds.io/#inquiry/aetypes=' + value + '">' + value + '</a>';
         });
 
         for (var i = 0; i < data.protos.length; i++){
@@ -311,7 +336,7 @@ $(document).ready(function(){
         }
         strbers.sort();
         for (var i = 0; i < strbers.length; i++){
-            strber_html += '<a href="https://mpds.io/#inquiry/protos='+strbers[i]+'">'+symb_tags(strbers[i])+'</a>';
+            strber_html += '<a href="https://mpds.io/#inquiry/protos=' + strbers[i] + '">' + symb_tags(strbers[i]) + '</a>';
         }
 
         $('#mpds_categs_aetypes').append(aetypes_html);
@@ -321,7 +346,7 @@ $(document).ready(function(){
 
     var formulae_html = '';
     $.each(window.formulae_ex, function(key, value){
-        formulae_html += '<a href="https://mpds.io/#search/'+value+'">'+value+'</a>';
+        formulae_html += '<a href="https://mpds.io/#search/' + termify_formulae(value) + '">' + value + '</a>';
     });
     $('#mpds_categs_formulae').append(formulae_html);
 });
