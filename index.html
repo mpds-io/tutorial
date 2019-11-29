@@ -349,6 +349,12 @@ $(document).ready(function(){
         formulae_html += '<a href="https://mpds.io/#search/' + termify_formulae(value) + '">' + value + '</a>';
     });
     $('#mpds_categs_formulae').append(formulae_html);
+
+    if (window.location.host.indexOf('tutorial') !== -1){ // FIX LINKS IN GH
+        $("#nav > ul > li > a").each(function(item){
+            $(this).attr('href', 'https://mpds.io' + $(this).attr('href'));
+        });
+    }
 });
 </script>
 </head>
