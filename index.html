@@ -384,7 +384,7 @@ $(document).ready(function(){
 
             <h2 id="Screencasts">&sect;1. Introductory examples</h2>
 
-            <p class="view">Given a picture is worth a thousand words, a screencast is worth a thousand pictures. See Fig. 1-3.</p>
+            <p class="view">Given a picture is worth a thousand words, a screencast is worth a thousand pictures: see Fig. 1-3.</p>
 
             <img id="F1" src="https://tutorial.mpds.io/screencasts/simple_search_and_visualization_of_the_results.gif" alt="Rich MPDS web-interface: plotting the results of the search as a matrix" width="800" />
             <div class="caption" data-id="F1"><b>Fig. 1.</b> MPDS platform: plotting the results of the search as a matrix.</div>
@@ -435,6 +435,8 @@ $(document).ready(function(){
             <div id="mpds_categs_classes" class="mpds_categs view"></div>
             <div class="caption view" data-id="L1"><b>Listing 1.</b> Some frequently occurring materials classes.</div>
 
+            <p class="view">Finally, MPDS supports the special classes <a href="https://mpds.io/#search/isopolyhedral">isopolyhedral</a>, <a href="https://mpds.io/#search/dipolyhedral">dipolyhedral</a>, and <a href="https://mpds.io/#search/tripolyhedral">tripolyhedral</a>, meaning the number of different atomic environment types in the crystalline structure, <i>i.e.</i> only one, two, and three, correspondingly. See the section "Atomic environments" below for more details.</p>
+
             <h3 id="Properties">&sect;3.4. Physical properties</h3>
 
             <p class="view">All the supported physical properties are given by the <a href="https://mpds.io/#hierarchy">MPDS hierarchy</a>. A search for a high-order property assumes all the subordinate properties included in the results. In addition, even more general terms like <a href="https://mpds.io/#search/permittivity">permittivity</a> or <a href="https://mpds.io/#search/pressure">pressure</a> are supported. The physical properties containing these terms in the name will be found.</p>
@@ -451,6 +453,8 @@ $(document).ready(function(){
 
             <div id="mpds_categs_formulae" class="mpds_categs view"></div>
             <div class="caption view" data-id="L2"><b>Listing 2.</b> The most frequently occurring chemical formulae.</div>
+
+            <p class="view">The so-called anonymous chemical formulae are also supported. They are the chemical formulae with the element names denoted as the letters A, B, C, and D. Only binary, ternary, and quaternary compounds are supported for such querying (<i>i.e.</i> the letters E, F, <i>etc.</i>, cannot be used, yet the elements of defects are not counted). The order of the atomic fractions is arbitrary, however the anonymous chemical elements should be always provided alphabetically. Examples: <a href="https://mpds.io/#inquiry/formulae=A2B">A2B</a>, <a href="https://mpds.io/#inquiry/formulae=ABC3">ABC3</a>, <i>etc.</i></p>
 
             <h3 id="Spacegroups">&sect;3.7. Crystal systems and space groups</h3>
 
@@ -472,7 +476,7 @@ $(document).ready(function(){
             <div id="mpds_categs_aetypes" class="mpds_categs view"></div>
             <div class="caption view" data-id="L4"><b>Listing 4.</b> MPDS data polyhedral types.</div>
 
-            <p>In this category, the first provided chemical symbol is the center of the polyhedron. It makes no sense to specify any numerical index nearby. The next provided chemical symbol is treated as a vertex. Here the numerical index is properly supported. The center and the vertices atoms can be provided together or subdivided using the space or minus sign. The X symbol stands for any chemical element. Consider the following examples: (<i>a</i>) <a href="https://mpds.io/#inquiry/aeatoms=U">U-center, any CN, any vertices</a>, (<i>b</i>) <a href="https://mpds.io/#inquiry/aeatoms=X-Se">any center, any CN, Se-vertices</a>, (<i>c</i>) <a href="https://mpds.io/#inquiry/aeatoms=UO6">U-center, CN = 6, O-vertices</a>, and (<i>d</i>) <a href="https://mpds.io/#inquiry/aeatoms=UX7">U-center, CN = 7, any vertices</a>.</p>
+            <p>More details are provided in the work of <a href="https://doi.org/10.1016/0925-8388(92)90570-Y">Daams et al. (1992)</a>. While searching for the atomic environments, the particular chemical symbols can be also given. In this category, the first chemical symbol given is considered as the center of the polyhedron. It makes no sense to specify any numerical coefficient nearby. The next given chemical symbol is considered as the vertex type. Here the numerical coefficient is properly supported. The center and the vertices atoms can be given together (or subdivided using the space or minus sign). The X symbol stands for any chemical element. Consider the following examples: (<i>a</i>) <a href="https://mpds.io/#inquiry/aeatoms=U">U-center, any CN, any vertices</a>, (<i>b</i>) <a href="https://mpds.io/#inquiry/aeatoms=X-Se">any center, any CN, Se-vertices</a>, (<i>c</i>) <a href="https://mpds.io/#inquiry/aeatoms=UO6">U-center, CN = 6, O-vertices</a>, and (<i>d</i>) <a href="https://mpds.io/#inquiry/aeatoms=UX7">U-center, CN = 7, any vertices</a>.</p>
 
             <h3 id="Bibliography">&sect;3.10. Bibliography</h3>
             <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, DOIs, geography <i>etc.</i> This information can be also used for citing. Generally citing of the MPDS is desirable, but not obligatory, as all the data have already their own publishers' citing information (DOIs <i>etc.</i>)</p>
