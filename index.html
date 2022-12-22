@@ -381,21 +381,21 @@ $(document).ready(function(){
         <div class="spacer"></div>
 
         <div id="content">
-            <p style="background:#f4fbff;">The MPDS presents the materials data, extracted by the project PAULING FILE team from the scientific publications. Even nowadays this task cannot be fully automated, so we had to manually process and systematize around <strong>300 thousands</strong> articles in physics, chemistry, and materials science. The results are now available online.</p>
+            <p style="background:#f4fbff;">The MPDS presents the materials data, extracted by the project PAULING FILE team from the scientific publications. Even nowadays this task cannot be fully automated, so we had to manually process and systematize around <strong>half a million</strong> articles in physics, chemistry, materials science, environmental science, engineering, geology, etc. The results are now available online.</p>
 
             <h2 id="Screencasts">&sect;1. Introductory examples</h2>
 
-            <p class="view">Given a picture is worth a thousand words, a screencast is worth a thousand pictures: see Fig. 1-3.</p>
+            <p class="view">Given a picture is worth a thousand words, a screencast is worth a thousand pictures: see Fig. 1-3. Generally, our intention was to create such a user interface which does not need a tutorial. Imagine, do you need a tutorial to drive your car, to use your smartphone, to speak to your robot assistant? So why a working tool for the scientists should be different?</p>
 
             <img loading="lazy" decoding="async" id="F1" src="https://tutorial.mpds.io/screencasts/simple_search_and_visualization_of_the_results.gif" alt="Rich MPDS web-interface: plotting the results of the search as a matrix" width="800" />
             <div class="caption" data-id="F1"><b>Fig. 1.</b> MPDS platform: plotting the results of the search as a matrix.</div>
 
-            <p class="view">&nbsp;</p>
+            <p class="view">The problem which we have faced developing MPDS is that only a few users are curious. The others just have not enough time. This is very well understandable in our post-post-you-name-it times. We are sinking in the ocean of data. And one finally might still need a tutorial to dive in quickly, so here we are.</p>
 
             <img loading="lazy" decoding="async" id="F2" src="https://tutorial.mpds.io/screencasts/search_by_a_semantic_graph.gif" alt="Rich MPDS web-interface: using the graph to refine the search" width="800" />
             <div class="caption" data-id="F2"><b>Fig. 2.</b> MPDS platform: using the graph to refine the search.</div>
 
-            <p class="view">&nbsp;</p>
+            <p class="view">In the end of the day we just invite all the materials scientists simply to try MPDS. It can be perfectly used for free, we only sell an additional level of comfort &mdash; given the customer likes our approach.</p>
 
             <img loading="lazy" decoding="async" id="F3" src="https://tutorial.mpds.io/screencasts/bibliographic_search_refinement_and_source_literature.gif" alt="Rich MPDS web-interface: complex search and redirection to the source article" width="800" />
             <div class="caption" data-id="F3"><b>Fig. 3.</b> MPDS platform: complex search and redirection to the source article.</div>
@@ -411,14 +411,13 @@ $(document).ready(function(){
 
             <p class="view">The MPDS is not the only product based on the PAULING FILE. There are others, such as <a href="http://materials.springer.com">SpringerMaterials</a>, <a href="http://crystdb.nims.go.jp">NIMS AtomWork</a>, <a href="http://www.materialsdesign.com/medea">MedeA</a> <i>etc.</i> More information can be found at the <a href="http://paulingfile.com">PAULING FILE website</a>.</p>
 
-
             <h2 id="Platform">&sect;3. MPDS platform</h2>
 
             <h3 id="MPDS-intro">&sect;3.1. Overview</h3>
 
             <p class="view">The MPDS platform is an online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the API section.</p>
 
-            <p class="view">Full access to all the data in all the supported formats (CIF, PDF, PNG, BIBTEX <i>etc.</i>) is provided by the <a href="/#products">subscription</a>. Free access is also possible although limited. In addition, some parts of the data are open-access. In particular, these are: (<i>a</i>) <a href="/#search/cell%20parameters%20-%20temperature%20diagram">cell parameters - temperature diagrams</a> and <a href="/#search/cell%20parameters%20-%20pressure%20diagram">cell parameters - pressure diagrams</a>, (<i>b</i>) all data for compounds containing <a href="/#search/K-Ag">both Ag and K</a>, (<i>c</i>) selected data for <a href="/#search/binary%20compounds">binary compounds</a>.</p>
+            <p class="view">Full access to all the data in all the supported formats (CIF, PDF, PNG, BIBTEX <i>etc.</i>) is provided by the <a href="/#products">subscription</a>. Free access is also possible although limited. In addition, some parts of the data are open-access. In particular, these are: (<i>a</i>) <a href="/#search/cell%20parameters%20-%20temperature%20diagram">cell parameters - temperature diagrams</a> and <a href="/#search/cell%20parameters%20-%20pressure%20diagram">cell parameters - pressure diagrams</a>, (<i>b</i>) all data for compounds containing <a href="/#search/K-Ag">both Ag and K</a>, (<i>c</i>) selected data for <a href="/#search/binary%20compounds">binary compounds</a>, (<i>d</i>) own in-house data, created internally at the MPDS and clearly marked as such (_not_ peer-reviewed, in a traditional sense).</p>
 
             <h3 id="Search-modes">&sect;3.2. Search criteria and modes</h3>
 
@@ -445,6 +444,8 @@ $(document).ready(function(){
             <p class="view">All the supported physical properties are given by the <a href="/#hierarchy">MPDS hierarchy</a>. A search for a high-order property assumes all the subordinate properties included in the results. In addition, even more general terms like <a href="/#search/permittivity">permittivity</a> or <a href="/#search/pressure">pressure</a> are supported. The physical properties containing these terms in the name will be found.</p>
 
             <p class="view">A part of the physical properties in the <a href="/#hierarchy">hierarchy</a> supports numerical searches. For that an exact name of the property should be used together with the less or more sign and the numerical value of interest (in SI units). Example: <a href="/#search/isothermal bulk modulus > 300">isothermal bulk modulus > 300</a> (assuming GPa).</p>
+
+            <p class="view">There is also a general property keyword <a href="/#search/physical%20properties">physical properties</a>. One finds it inside the data refinement box in the GUI.</p>
 
             <h3 id="Elements">&sect;3.5. Chemical elements</h3>
 
