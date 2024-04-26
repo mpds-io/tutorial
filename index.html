@@ -354,6 +354,12 @@ $(document).ready(function(){
             $(this).attr('href', 'https://mpds.io' + $(this).attr('href'));
         });
     }*/
+    window.addEventListener('hashchange', function(evt){
+        var url = window.location.hash.substr(1);
+        if (url == 'start' || url == 'products'){
+            window.location.href = 'https://mpds.io/#' + url;
+        }
+    });
 });
 </script>
 </head>
@@ -388,7 +394,7 @@ $(document).ready(function(){
             <img loading="lazy" decoding="async" id="F1" src="https://tutorial.mpds.io/screencasts/simple_search_and_visualization_of_the_results.gif" alt="Rich MPDS web-interface: plotting the results of the search as a matrix" width="800" />
             <div class="caption" data-id="F1"><b>Fig. 1.</b> MPDS platform: plotting the results of the search as a matrix.</div>
 
-            <p class="view">The problem which we have faced developing MPDS is that only a few users are curious. The others just have not enough time. This is very well understandable in our post-post-you-name-it times. We are sinking in the ocean of data. And one finally might still need a tutorial to dive in quickly, so here we are.</p>
+            <p class="view">The problem which we have faced developing MPDS is that only a small subset of our users are really curious. The others just have not enough time. This is very well understandable in our post-post-you-name-it times. We are sinking in the ocean of data. And so if one finally needs a tutorial to dive in quickly, here we are.</p>
 
             <img loading="lazy" decoding="async" id="F2" src="https://tutorial.mpds.io/screencasts/search_by_a_semantic_graph.gif" alt="Rich MPDS web-interface: using the graph to refine the search" width="800" />
             <div class="caption" data-id="F2"><b>Fig. 2.</b> MPDS platform: using the graph to refine the search.</div>
@@ -449,7 +455,9 @@ $(document).ready(function(){
 
             <h3 id="Elements">&sect;3.5. Chemical elements</h3>
 
-            <p class="view">Chemical elements can be typed as names or symbols (<i>e.g.</i> copper or Cu). Obviously, chemical elements can be combined arbitrarily in searches, using spaces, commas, or dashes as the separators. By default, equal or greater count of elements is implied, <i>e.g.</i> the results for <a href="/#search/Cd-O-S">Cd-O-S</a> may contain not only Cd, O, and S, but also Tl, H, N, K <i>etc.</i> To restrict the elements count, the <i>arity</i> <strong>materials classes</strong> <a href="/#search/unary">unary</a>, <a href="/#search/binary">binary</a>, <a href="/#search/ternary">ternary</a>, <a href="/#search/quaternary">quaternary</a>, or <a href="/#search/quinary">quinary</a> should be added, <i>e.g.</i> <a href="/#search/Cd-O-S%20ternary">Cd-O-S ternary</a>.</p>
+            <p class="view">Chemical elements can be typed as names or symbols (<i>e.g.</i> copper or Cu). Obviously, chemical elements can be combined arbitrarily in searches, using spaces, commas, or dashes as the separators. By default, equal or greater count of elements is implied, <i>e.g.</i> the results for <a href="/#search/Cd-O-S">Cd-O-S</a> may contain not only Cd, O, and S, but also Tl, H, N, K, <i>etc.</i></p>
+
+            <p class="view">Important: to restrict the elements count, the <i>arity</i> <strong>materials classes</strong> <a href="/#search/unary">unary</a>, <a href="/#search/binary">binary</a>, <a href="/#search/ternary">ternary</a>, <a href="/#search/quaternary">quaternary</a>, or <a href="/#search/quinary">quinary</a> should be added, <i>e.g.</i> <a href="/#search/Cd-O-S%20ternary">Cd-O-S ternary</a>. We receive a lot of complaints that searching for e.g. aluminium yields many possible aluminium compounds, but not the pure aluminum data. Here's the solution: just add the <a href="/#search/Al%20unary">unary</a> class.</p>
 
             <h3 id="Formulae">&sect;3.6. Chemical formulae</h3>
 
@@ -483,16 +491,20 @@ $(document).ready(function(){
             <p>More details are provided in the work of <a href="https://doi.org/10.1016/0925-8388(92)90570-Y">Daams et al. (1992)</a>. While searching for the atomic environments, the particular chemical symbols can be also given. In this category, the first chemical symbol given is considered as the center of the polyhedron. It makes no sense to specify any numerical coefficient nearby. The next given chemical symbol is considered as the vertex type. Here the numerical coefficient is properly supported. The center and the vertices atoms can be given together (or subdivided using the space or minus sign). The X symbol stands for any chemical element. Consider the following examples: (<i>a</i>) <a href="/#inquiry/aeatoms=U">U-center, any CN, any vertices</a>, (<i>b</i>) <a href="/#inquiry/aeatoms=X-Se">any center, any CN, Se-vertices</a>, (<i>c</i>) <a href="/#inquiry/aeatoms=UO6">U-center, CN = 6, O-vertices</a>, and (<i>d</i>) <a href="/#inquiry/aeatoms=UX7">U-center, CN = 7, any vertices</a>.</p>
 
             <h3 id="Bibliography">&sect;3.10. Bibliography</h3>
-            <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, DOIs, geography <i>etc.</i> This information can be also used for citing. Generally citing of the MPDS is desirable, but not obligatory, as all the data have already their own publishers' citing information (DOIs <i>etc.</i>)</p>
+            <p class="view">Since all the MPDS data were manually excerpted from the peer-reviewed articles, they are searchable by their corresponding author names, publication years, journal issues, pages, DOIs, geography <i>etc.</i> This information can be also used for citing. Generally citing the MPDS is desirable, but not obligatory, as all the data have already their own publishers' citing information (DOIs <i>etc.</i>)</p>
+
+            <p class="view">Note that the MPDS data are citable per se via the permanent URLs like <a href="https://mpds.io/entry/S250002">www.mpds.io/entry/S250002</a> for the <i>entries</i>, <a href="https://mpds.io/phase_id/7810">www.mpds.io/phase_id/7810</a> for the <i>distinct phases</i>, and <a href="https://mpds.io/article/54292">www.mpds.io/article/54292</a> for the <i>original source articles</i>. Even if the publisher's minted DOI is not valid anymore, the original source article can still be referenced on MPDS. We clearly understand the importance of the valid scientific references and guarantee the stability of these URLs in future, even if our online server technology gets into a new lifecycle.</p>
+
+            <p class="view">Moreover, there is a number of such unique literally lost papers which were printed many years ago, never digitized by their publishers, and eventually lost, so that only we keep the digital copy of them &mdash; plus the extracted data entries. An example of such lost paper is [<a href="https://mpds.io/article/20131">20131</a>], we wish our reader a good luck to find its printed original, not to speak about the electronic document.</p>
 
             <h2 id="Users">&sect;4. Administrative interface</h2>
 
-            <p class="view">Account management on the MPDS platform allows the certain privileged user accounts (called <i>super-admins</i>) to create and manage the other user accounts. This is done as outlined below. First, the super-admin should be of course authenticated. Then the special web-page <i>management</i> can be opened.</p>
+            <p class="view">Account management on the MPDS platform allows the certain privileged user accounts (called <i>super-admins</i>) to create and manage the other user accounts. This is done as outlined below. First, the super-admin should be (of course!) authenticated. Then the special web-page <i>management</i> can be opened.</p>
 
             <img loading="lazy" decoding="async" id="F5" src="https://tutorial.mpds.io/screencasts/user_login_and_account_management.gif" alt="MPDS administrative interface" width="800" />
             <div class="caption" data-id="F5"><b>Fig. 5.</b> MPDS platform: user login and rich administrative interface.</div>
 
-            <p class="view">The screencast above also shows the password-less login via the secret one-off link emailed by request. In fact, this is very convenient, since our users do not have to remember any passwords (and we hate the passwords). Of course, the passwords can still be used as an option.</p>
+            <p class="view">The screencast above also shows the password-less login via the secret one-off link emailed by request. In fact, this is very convenient, since our users do not have to remember any passwords (and we hate the passwords!). Of course, the passwords can still be used as an option.</p>
 
             <p class="view">On top of that, we also support the so called external OAuth logins, when a well-known online service, such as LinkedIn or ORCID, confirms the identity of our user. For that, of course, he or she needs to be logged in on that service. According to the <a href="https://en.wikipedia.org/wiki/OAuth">OAuth protocol specs</a>, no other information except the name and the email is shared to the MPDS.</p>
 
