@@ -54,8 +54,8 @@ li.nav_fluid{display:none;}
 #menu{display:none;position:fixed;left:0;top:170px;width:12.5%;height:auto;z-index:100;}
 #menu li{text-align:left;list-style:none;letter-spacing:-0.5px;}
 #menu a{display:block;}
-#menu > ul > li > a{text-decoration:none;color:#900;border-bottom:1px solid #900;padding:4px 0;font-size:2vmin;padding-left:5px;line-height:2.5vmin;}
-#menu > ul > li > a:hover, #menu > ul > li > a.active {color:#fff;background:#900;}
+#menu > ul > li > a{text-decoration:none;color:#080aa8;border-bottom:1px solid #080aa8;padding:4px 0;font-size:2vmin;padding-left:5px;line-height:2.5vmin;}
+#menu > ul > li > a:hover, #menu > ul > li > a.active {color:#fff;background:#080aa8;}
 #menu > ul > li > ul > li > a{text-decoration:none;color:#222;border-bottom:1px solid #222;padding:4px 0;font-size:1.8vmin;padding-left:18px;line-height:2.3vmin;}
 #menu > ul > li > ul > li > a:hover, #menu > ul > li > ul > li > a.active {color:#fff;background:#222;}
 
@@ -72,13 +72,13 @@ li.nav_fluid{display:none;}
 
 div.modal_dialogue{position:fixed;top:10%;left:50%;border-radius:4px;border:1px solid #999;box-shadow:15px 15px 10px -5px rgba(0,0,0,0.4);}
 div.cross{float:right;width:16px;height:16px;font-size:10px;text-align:center;cursor:pointer;background:url(data:image/gif;base64,R0lGODlhEAAQAJEAAAAAAP///1VVVf///yH5BAEAAAMALAAAAAAQABAAAAIjnI+py6L+BDRy0gqxHVqvLjGcJ3Yl+IEhQpLX+m7wMYv2PRQAOw==) no-repeat;}
-span.href{cursor:pointer;text-decoration:none;color:#3e3f95;border-bottom:1px solid #3e3f95;}
+span.href{cursor:pointer;text-decoration:none;color:#080aa8;border-bottom:1px solid #080aa8;}
 
 #response{white-space:pre;}
 #logo_bg{display:none;width:250px;height:250px;position:fixed;z-index:-1;right:5px;bottom:20px;background:url(https://tutorial.mpds.io/mpds.png) left top no-repeat;background-size:100%;opacity:0.1;}
 #notifybox{z-index:201;position:fixed;top:12px;right:4px;min-width:150px;background:#fc6;border-radius:5px;padding:20px 25px;font-size:1.2em;line-height:1.45em;}
 #main{width:100%;min-height:100%;height:auto !important;height:100%;margin-bottom:-33px;}
-h1, h2, h3{line-height:2.2em;font-size:1.5em;font-weight:bold;color:#900;}
+h1, h2, h3{line-height:2.2em;font-size:1.5em;font-weight:bold;color:#080aa8;}
 h2:first-letter , h3:first-letter {color:#222;}
 h3{line-height:2.2em;font-size:1.2em;}
 
@@ -131,7 +131,7 @@ li.nav_fluid {display:inline-block;}
 .github-fork-ribbon {
 position: fixed;
 padding: 2px 0;
-background-color: #900;
+background-color: #080aa8;
 background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
 background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
 background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
@@ -472,9 +472,9 @@ $(document).ready(function(){
 
             <p class="view">Seven crystal systems and 230 space groups are fully supported. The space groups can be specified as the number or international short symbol. Full list of crystal systems and space groups can be found <i>e.g.</i> in <a href="https://en.wikipedia.org/wiki/List_of_space_groups">Wikipedia</a>. Note, that crystal systems, space groups, and prototype systems (see below) are mutually exclusive, <i>i.e.</i> not possible to combine in a search query.</p>
 
-            <h3 id="Prototypes">&sect;3.8. Prototype systems</h3>
+            <h3 id="Prototypes">&sect;3.8. Prototypes</h3>
 
-            <p class="view" id="L3">Prototype systems are supported in two notations: <a href="https://commons.wikimedia.org/wiki/Strukturbericht"><i>Strukturbericht</i></a> and <i>combined</i>. The first notation is an old crystallographic classification system still sometimes used in the scientific literature (see the listing below). The second notation is given by a combination of the chemical formula, the <a href="https://en.wikipedia.org/wiki/Pearson_symbol">Pearson symbol</a>, and the space group number. For instance, the most common prototype in the world literature is <a href="/#inquiry/protos=NaCl+cF8+225">NaCl <i>cF</i>8 225</a>, counting about 40&nbsp;000 hits. Other important structural prototypes are <i>e.g.</i> cubic perovskite <a href="/#inquiry/protos=CaTiO3+cP5+221">CaTiO3 <i>cP</i>5 221</a>, zincblende <a href="/#inquiry/protos=ZnS+cF8+216">ZnS <i>cF</i>8 216</a>, superconducting cuprate <a href="/#inquiry/protos=Ba2Cu3YO6.3+tP14+123">Ba2Cu3YO6.3 <i>tP</i>14 123</a> <i>etc.</i></p>
+            <p class="view" id="L3">Prototype crystal systems are supported in two notations: <a href="https://commons.wikimedia.org/wiki/Strukturbericht"><i>Strukturbericht</i></a> and <i>formula-space-group-based</i>. The first notation is an old crystallographic classification system still sometimes used in the scientific literature (see the listing below). The second notation is given by a combination of the chemical formula, the <a href="https://en.wikipedia.org/wiki/Pearson_symbol">Pearson symbol</a>, and the space group number. For instance, the most common prototype in the world literature is <a href="/#inquiry/protos=NaCl+cF8+225">NaCl <i>cF</i>8 225</a>, counting about 40&nbsp;000 hits. Other important structural prototypes are <i>e.g.</i> cubic perovskite <a href="/#inquiry/protos=CaTiO3+cP5+221">CaTiO3 <i>cP</i>5 221</a>, zincblende <a href="/#inquiry/protos=ZnS+cF8+216">ZnS <i>cF</i>8 216</a>, superconducting cuprate <a href="/#inquiry/protos=Ba2Cu3YO6.3+tP14+123">Ba2Cu3YO6.3 <i>tP</i>14 123</a> <i>etc.</i></p>
 
             <p class="view">There are nearly 14000 unique distinct prototypes, including about 250 Strukturbericht symbols (see below). Being although very old notation, Strukturbericht is still popular in the literature.</p>
 
