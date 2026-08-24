@@ -311,7 +311,7 @@ $(document).ready(function(){
         $('#bookmarks').append(menu);
     }
 
-    $.getJSON("https://mpds.io/wmdata.json", function(data){
+    $.getJSON("https://api.mpds.io/v0/download/wmdata", function(data){
         var classes_html = '',
             aetypes_html = '',
             strber_html = '',
@@ -453,11 +453,11 @@ $(document).ready(function(){
 
             <p class="view">The MPDS platform is an online edition of the PAULING FILE materials database. All the data are presented in two ways (online interfaces): browser-based graphical user interface (<strong>GUI</strong>) and application programming interface (<strong>API</strong>). Here the browser-based user interface (<strong>GUI</strong>) is described, whereas the programmatic usage is covered in the API section.</p>
 
-            <p class="view">Full access to all the data in all the supported formats (CIF, PDF, PNG, BIBTEX <i>etc.</i>) is provided by the <a href="https://mpds.io/products">subscription</a>. Free access is also possible although limited. In addition, some parts of the data are open-access. In particular, these are: (<i>a</i>) <a href="/#search/cell%20parameters%20-%20temperature%20diagram">cell parameters - temperature diagrams</a> and <a href="/#search/cell%20parameters%20-%20pressure%20diagram">cell parameters - pressure diagrams</a>, (<i>b</i>) all data for compounds containing <a href="/#search/K-Ag">both Ag and K</a>, (<i>c</i>) selected data for <a href="/#search/binary%20compounds">binary compounds</a>, (<i>d</i>) own in-house data, created internally at the MPDS and clearly marked as such (<strong>non-peer-reviewed</strong>, in a traditional sense).</p>
+            <p class="view">Full access to all the data in all the supported formats (CIF, PDF, PNG, BIBTEX <i>etc.</i>) is provided by the <a href="https://mpds.io/products">subscription</a>. Free access is also possible although limited. In addition, some parts of the data are open-access. For instance, these are: (<i>a</i>) <a href="/#inquiry/props=cell%20parameters%20-%20temperature%20diagram">cell parameters - temperature diagrams</a> and <a href="/#inquiry/props=cell%20parameters%20-%20pressure%20diagram">cell parameters - pressure diagrams</a>, (<i>b</i>) all data for compounds containing <a href="/#search/K-Ag">both Ag and K</a>, (<i>c</i>) selected data for <a href="/#search/binary%20compounds">binary compounds</a>, (<i>d</i>) own in-house data, created internally at the MPDS and clearly marked as such (<strong>non-peer-reviewed</strong>, in a traditional sense).</p>
 
             <h3 id="Search-modes">&sect;3.2. Search criteria and modes</h3>
 
-            <p class="view">Search of data at the MPDS platform is possible according to 14 criteria: 8 in physics or chemistry (materials classes, physical properties, chemical elements, chemical formulae, space groups, crystal systems, prototypes, and atomic environments) and 6 in bibliography (publication author, years, journal, geography, organization, and DOI). There are two search modes: <i>simple</i> and <i>advanced</i>.</p>
+            <p class="view">Search of data at the MPDS platform is possible according to about two dozen criteria in physics, chemistry, and bibliography. These are materials classes, physical properties, chemical elements, chemical formulae, space groups, crystal systems, prototypes, atomic environments, Wyckoff positions and sequences, publication authors, years, journals, affiliations, countries and cities, DOIs, etc. There are two search modes: <i>simple</i> and <i>advanced</i>.</p>
 
             <p>In the <i>simple</i> mode different search terms can be typed all in a single input field (see Fig.&nbsp;4). Here the most frequently used 5 criteria are supported: <i>materials classes</i>, <i>physical properties</i>, <i>chemical elements</i>, <i>chemical formulae</i>, and <i>crystal systems</i>. All they will be correctly recognized and attributed to your search keywords.</p>
 
@@ -479,7 +479,7 @@ $(document).ready(function(){
 
             <p class="view">All the supported physical properties are given by the <a href="/#hierarchy">MPDS hierarchy</a>. A search for a high-order property assumes all the subordinate properties included in the results. In addition, even more general terms like <a href="/#search/permittivity">permittivity</a> or <a href="/#search/pressure">pressure</a> are supported. The physical properties containing these terms in the name will be found.</p>
 
-            <p class="view">A part of the physical properties in the <a href="/#hierarchy">hierarchy</a> supports numerical searches. For that an exact name of the property should be used together with the less or more sign and the numerical value of interest (in SI units). Example: <a href="/#search/isothermal bulk modulus > 300">isothermal bulk modulus > 300</a> (assuming GPa).</p>
+            <p class="view">A part of the physical properties in the <a href="/#hierarchy">hierarchy</a> supports numerical searches. For that an exact name of the property should be used together with the less or more sign and the numerical value of interest (in SI units). Example: <a href="/#inquiry/numeric=isothermal%20bulk%20modulus%20>%20300">isothermal bulk modulus > 300</a> (assuming GPa).</p>
 
             <p class="view">There is also a general property keyword <a href="/#search/physical%20properties">physical properties</a>. One finds it inside the data refinement box in the GUI.</p>
 
